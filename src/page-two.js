@@ -10,9 +10,17 @@ export default function pageTwoLoad() {
   loadParkingOss();
   loadBottom();
   loadButtonFunctionality();
+  loadGetValButton();
 }
 
 //helper functions
+
+function loadGetValButton() {
+  const getValButton = document.getElementById("button1");
+  getValButton.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
+}
 
 function loadButtonFunctionality() {
   const buttonSell = document.getElementById("button-sell");

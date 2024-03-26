@@ -21,7 +21,6 @@ export default function pageOneLoad(userInput) {
       } else {
         // Store input in object here
         userInput.postcode = postcodeInput;
-        console.log(userInput);
         pageTwoLoad();
       }
     });

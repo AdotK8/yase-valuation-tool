@@ -3,7 +3,6 @@ import mapIcon from "./assets/map-marker.svg";
 import valuationIcon from "./assets/valuation.svg";
 import pageOneLoad from "./page-one";
 import pageTwoLoad from "./page-two";
-import clearWidget from "./clear-container";
 
 //filling in images for map icon and valuation image
 
