@@ -10,16 +10,38 @@ export default function pageTwoLoad() {
   loadParkingOss();
   loadBottom();
   loadButtonFunctionality();
-  loadGetValButton();
+  submitSelection();
 }
 
 //helper functions
 
-function loadGetValButton() {
-  const getValButton = document.getElementById("button1");
-  getValButton.addEventListener("click", (e) => {
+function submitSelection() {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+    errorHandling();
   });
+}
+
+function errorHandling() {
+  const bedInput = document.querySelector("#bedroom-input");
+  const bathInput = document.querySelector("#bathroom-input");
+  const squareInput = document.querySelector(".square-input");
+  const dateInput = document.querySelector("#date-input");
+  const typeInput = document.querySelector("#type-input");
+  const finishInput = document.querySelector("#finish-input");
+  const ossInput = document.querySelector("#oss-input");
+  const parkingInput = document.querySelector("#parking-input");
+
+  if (!bedInput.value) {
+    bedInput.setCustomValidity("Please enter the number of bedrooms");
+    bedInput.reportValidity(); // Show the validation message
+    console.log("false");
+  } else if (bedInput.value) {
+    bedInput.setCustomValidity(""); // Clear the validation message
+    console.log("false");
+  }
 }
 
 function loadButtonFunctionality() {
@@ -72,6 +94,9 @@ function loadBedAndBath() {
   const bedContainer = document.createElement("div");
   const bathContainer = document.createElement("div");
 
+  bedDropdown.setAttribute("id", "bedroom-input");
+  bathDropdown.setAttribute("id", "bathroom-input");
+
   propertyDetailsText.innerHTML = "Your property details";
   container.appendChild(propertyDetailsText);
 
@@ -121,6 +146,7 @@ function loadSquareInput() {
   squareInput.type = "number";
   squareInput.placeholder = "Approximate internal square footage of property";
   squareInput.classList.add("square-input");
+  squareInput.setAttribute("min", "300");
 
   container.appendChild(squareInput);
 }
@@ -144,6 +170,9 @@ function loadDateAndType() {
   defaultDate.text = "Construction date";
   defaultType.value = "";
   defaultType.text = "Type of property";
+
+  dateDropdown.setAttribute("id", "date-input");
+  typeDropdown.setAttribute("id", "type-input");
 
   defaultDate.setAttribute("disabled", true);
   defaultDate.setAttribute("selected", true);
@@ -207,7 +236,7 @@ function loadFinish() {
   defaultFinish.setAttribute("disabled", true);
   defaultFinish.setAttribute("selected", true);
 
-  finishDropdown.classList.add("finish");
+  finishDropdown.setAttribute("id", "finish-input");
 
   for (let i = 0; i < 5; i++) {
     const option = document.createElement("option");
@@ -244,6 +273,9 @@ function loadParkingOss() {
   const parkingOssContainer = document.createElement("div");
   const ossContainer = document.createElement("div");
   const parkingContainer = document.createElement("div");
+
+  ossDropdown.setAttribute("id", "oss-input");
+  parkingDropdown.setAttribute("id", "parking-input");
 
   ossDropdown.name = "oss";
   parkingDropdown.name = "parking";
