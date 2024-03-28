@@ -51,6 +51,8 @@ input {
   border: none;
   outline: 1px solid $border-colour;
   color: $input-colour;
+  box-sizing: border-box;
+  //   text-overflow: clip;
   &:focus {
     outline: 1px solid $yase-purple;
   }
@@ -138,4 +140,16 @@ input::placeholder {
   &:focus {
     outline: 1px solid $yase-purple;
   }
+}
+
+#first-name-input,
+#second-name-input {
+  outline: 1px solid $border-colour;
+  border: none;
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-overflow: clip;
+  width: 100%;
 }
