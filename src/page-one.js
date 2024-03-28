@@ -21,7 +21,7 @@ export default function pageOneLoad(userInput) {
       } else {
         // Store input in object here
         userInput.postcode = postcodeInput;
-        pageTwoLoad();
+        pageTwoLoad(userInput);
       }
     });
 }

@@ -1,6 +1,6 @@
 import clearWidget from "./clear-container";
 
-export default function pageTwoLoad() {
+export default function pageTwoLoad(userInput) {
   clearWidget();
   loadTop();
   loadBedAndBath();
@@ -10,21 +10,33 @@ export default function pageTwoLoad() {
   loadParkingOss();
   loadBottom();
   loadButtonFunctionality();
-  submitSelection();
+  checkValidSelection(userInput);
 }
 
 //helper functions
 
-function submitSelection() {
+function checkValidSelection(userInput) {
   const form = document.querySelector("form");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    errorHandling();
+    errorHandling(userInput);
   });
 }
 
-function errorHandling() {
+function validateInput(input, errorMessage = "Please select an option") {
+  if (!input.value) {
+    input.setCustomValidity(errorMessage);
+    input.reportValidity();
+    input.addEventListener("input", function () {
+      input.setCustomValidity("");
+    });
+    return false;
+  }
+  return true;
+}
+
+function errorHandling(userInput) {
   const bedInput = document.querySelector("#bedroom-input");
   const bathInput = document.querySelector("#bathroom-input");
   const squareInput = document.querySelector(".square-input");
@@ -34,14 +46,44 @@ function errorHandling() {
   const ossInput = document.querySelector("#oss-input");
   const parkingInput = document.querySelector("#parking-input");
 
-  if (!bedInput.value) {
-    bedInput.setCustomValidity("Please enter the number of bedrooms");
-    bedInput.reportValidity(); // Show the validation message
-    console.log("false");
-  } else if (bedInput.value) {
-    bedInput.setCustomValidity(""); // Clear the validation message
-    console.log("false");
+  if (!validateInput(bedInput)) {
+    return;
   }
+  if (!validateInput(bathInput)) {
+    return;
+  }
+  if (!validateInput(squareInput, "Please enter the square footage")) {
+    return;
+  }
+  if (!validateInput(dateInput)) {
+    return;
+  }
+  if (!validateInput(typeInput)) {
+    return;
+  }
+  if (!validateInput(finishInput)) {
+    return;
+  }
+  if (!validateInput(ossInput)) {
+    return;
+  }
+  if (!validateInput(parkingInput)) {
+    return;
+  } else submitSelection(userInput);
+}
+
+function submitSelection(userInput) {
+  userInput.bedrooms = document.querySelector("#bedroom-input").value;
+  userInput.bathrooms = document.querySelector("#bathroom-input").value;
+  userInput.squareFootage = document.querySelector(".square-input").value;
+  userInput.buildDate = document.querySelector("#date-input").value;
+  userInput.propertyType = document.querySelector("#type-input").value;
+  userInput.finishQuality = document.querySelector("#finish-input").value;
+  userInput.oss = document.querySelector("#oss-input").value;
+  userInput.parking = document.querySelector("#parking-input").value;
+  userInput.sellOrLet = document.querySelector(".selected").textContent;
+
+  console.log(userInput);
 }
 
 function loadButtonFunctionality() {
