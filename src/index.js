@@ -17,6 +17,6 @@ valuationIconElement.src = valuationIcon;
 const userInput = {};
 
 //loading first page
-pageOneLoad(userInput);
-// pageTwoLoad();
-// pageThreeLoad();
+// pageOneLoad(userInput);
+pageTwoLoad(userInput);
+// pageThreeLoad(userInput);

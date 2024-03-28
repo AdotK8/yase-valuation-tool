@@ -56,7 +56,9 @@ input {
   }
 }
 
-#button1 {
+#page-one-button,
+#page-two-button,
+#page-three-button {
   padding: 1rem;
   font-weight: 700;
   background-color: $yase-purple;

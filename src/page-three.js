@@ -5,6 +5,82 @@ export default function pageThreeLoad(userInput) {
   loadNameFields();
   loadEmailAndNumberFields();
   loadBottom();
+  checkValidSelection(userInput);
+}
+
+function checkValidSelection(userInput) {
+  const form = document.querySelector("form");
+  const firstNameInput = document.getElementById("first-name-input");
+  const secondNameInput = document.getElementById("second-name-input");
+  const emailInput = document.getElementById("email-input");
+  const phoneInput = document.getElementById("number-input");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    errorHandling(
+      userInput,
+      firstNameInput,
+      secondNameInput,
+      emailInput,
+      phoneInput
+    );
+  });
+}
+
+function validateInput(input, errorMessage) {
+  if (!input.value) {
+    input.setCustomValidity(errorMessage);
+    input.reportValidity();
+    input.addEventListener("input", function () {
+      input.setCustomValidity("");
+    });
+    return false;
+  }
+  return true;
+}
+
+function errorHandling(
+  userInput,
+  firstNameInput,
+  secondNameInput,
+  emailInput,
+  phoneInput
+) {
+  if (!validateInput(firstNameInput, "Please enter your first name")) {
+    return;
+  }
+  if (!validateInput(secondNameInput, "Please enter your surname")) {
+    return;
+  }
+  if (!validateInput(emailInput, "Please enter your email address")) {
+    return;
+  }
+  if (!validateInput(phoneInput, "Please enter your phone number")) {
+    return;
+  } else
+    submitSelection(
+      userInput,
+      firstNameInput,
+      secondNameInput,
+      emailInput,
+      phoneInput
+    );
+}
+
+function submitSelection(
+  userInput,
+  firstNameInput,
+  secondNameInput,
+  emailInput,
+  phoneInput
+) {
+  userInput.firstName = firstNameInput.value;
+  userInput.secondNameInput = secondNameInput.value;
+  userInput.emailInput = emailInput.value;
+  userInput.phoneInput = phoneInput.value;
+
+  console.log(userInput);
 }
 
 function loadNameFields() {
@@ -56,7 +132,7 @@ function loadBottom() {
   const getValButton = document.createElement("button");
   const disclaimer = document.createElement("p");
 
-  getValButton.setAttribute("id", "button1");
+  getValButton.setAttribute("id", "page-three-button");
   getValButton.setAttribute("type", "submit");
   getValButton.innerHTML = "GET INSTANT VALUATION";
 

@@ -70,22 +70,43 @@ function errorHandling(userInput) {
   }
   if (!validateInput(parkingInput)) {
     return;
-  } else submitSelection(userInput);
+  } else
+    submitSelection(
+      userInput,
+      bedInput,
+      bathInput,
+      squareInput,
+      dateInput,
+      typeInput,
+      finishInput,
+      ossInput,
+      parkingInput
+    );
 }
 
-function submitSelection(userInput) {
-  userInput.bedrooms = document.querySelector("#bedroom-input").value;
-  userInput.bathrooms = document.querySelector("#bathroom-input").value;
-  userInput.squareFootage = document.querySelector(".square-input").value;
-  userInput.buildDate = document.querySelector("#date-input").value;
-  userInput.propertyType = document.querySelector("#type-input").value;
-  userInput.finishQuality = document.querySelector("#finish-input").value;
-  userInput.oss = document.querySelector("#oss-input").value;
-  userInput.parking = document.querySelector("#parking-input").value;
+function submitSelection(
+  userInput,
+  bedInput,
+  bathInput,
+  squareInput,
+  dateInput,
+  typeInput,
+  finishInput,
+  ossInput,
+  parkingInput
+) {
+  userInput.bedrooms = bedInput.value;
+  userInput.bathrooms = bathInput.value;
+  userInput.squareFootage = squareInput.value;
+  userInput.buildDate = dateInput.value;
+  userInput.propertyType = typeInput.value;
+  userInput.finishQuality = finishInput.value;
+  userInput.oss = ossInput.value;
+  userInput.parking = parkingInput.value;
   userInput.sellOrLet = document.querySelector(".selected").textContent;
 
-  console.log(userInput);
   pageThreeLoad(userInput);
+  console.log(userInput);
 }
 
 function loadButtonFunctionality() {
@@ -189,7 +210,6 @@ function loadSquareInput() {
   const squareInput = document.createElement("input");
   squareInput.type = "number";
   squareInput.placeholder = "Approximate internal square footage of property";
-  squareInput.classList.add("square-input");
   squareInput.setAttribute("id", "square-input");
   squareInput.setAttribute("min", "300");
 
@@ -378,7 +398,7 @@ function loadBottom() {
   const container = document.querySelector(".container");
   const getValButton = document.createElement("button");
 
-  getValButton.setAttribute("id", "button1");
+  getValButton.setAttribute("id", "page-two-button");
   getValButton.setAttribute("type", "submit");
   getValButton.innerHTML = "GET INSTANT VALUATION";
 

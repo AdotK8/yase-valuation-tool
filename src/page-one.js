@@ -7,7 +7,7 @@ export default function pageOneLoad(userInput) {
   });
 
   document
-    .getElementById("button1")
+    .getElementById("page-one-button")
     .addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default form submission behavior
 
