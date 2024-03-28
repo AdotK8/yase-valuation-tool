@@ -1,4 +1,5 @@
 import clearWidget from "./clear-container";
+import validateInput from "./validate-input";
 
 export default function pageThreeLoad(userInput) {
   clearWidget();
@@ -9,13 +10,14 @@ export default function pageThreeLoad(userInput) {
 }
 
 function checkValidSelection(userInput) {
-  const form = document.querySelector("form");
+  const form = document.getElementById("page-three-button");
+  //   const form = document.querySelector("form");
   const firstNameInput = document.getElementById("first-name-input");
   const secondNameInput = document.getElementById("second-name-input");
   const emailInput = document.getElementById("email-input");
   const phoneInput = document.getElementById("number-input");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("click", (e) => {
     e.preventDefault();
 
     errorHandling(
@@ -26,18 +28,6 @@ function checkValidSelection(userInput) {
       phoneInput
     );
   });
-}
-
-function validateInput(input, errorMessage) {
-  if (!input.value) {
-    input.setCustomValidity(errorMessage);
-    input.reportValidity();
-    input.addEventListener("input", function () {
-      input.setCustomValidity("");
-    });
-    return false;
-  }
-  return true;
 }
 
 function errorHandling(

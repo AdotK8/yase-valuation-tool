@@ -18,5 +18,5 @@ const userInput = {};
 
 //loading first page
 // pageOneLoad(userInput);
-pageTwoLoad(userInput);
-// pageThreeLoad(userInput);
+// pageTwoLoad(userInput);
+pageThreeLoad(userInput);

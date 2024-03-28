@@ -1,5 +1,6 @@
 import clearWidget from "./clear-container";
 import pageThreeLoad from "./page-three";
+import validateInput from "./validate-input";
 
 export default function pageTwoLoad(userInput) {
   clearWidget();
@@ -17,24 +18,12 @@ export default function pageTwoLoad(userInput) {
 //helper functions
 
 function checkValidSelection(userInput) {
-  const form = document.querySelector("form");
+  const form = document.getElementById("page-two-button");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("click", (e) => {
     e.preventDefault();
     errorHandling(userInput);
   });
-}
-
-function validateInput(input, errorMessage = "Please select an option") {
-  if (!input.value) {
-    input.setCustomValidity(errorMessage);
-    input.reportValidity();
-    input.addEventListener("input", function () {
-      input.setCustomValidity("");
-    });
-    return false;
-  }
-  return true;
 }
 
 function errorHandling(userInput) {
@@ -47,28 +36,28 @@ function errorHandling(userInput) {
   const ossInput = document.getElementById("oss-input");
   const parkingInput = document.getElementById("parking-input");
 
-  if (!validateInput(bedInput)) {
+  if (!validateInput(bedInput, "Please select number of bedrooms")) {
     return;
   }
-  if (!validateInput(bathInput)) {
+  if (!validateInput(bathInput, "Please select number of bathrooms")) {
     return;
   }
   if (!validateInput(squareInput, "Please enter the square footage")) {
     return;
   }
-  if (!validateInput(dateInput)) {
+  if (!validateInput(dateInput, "Please select construction date")) {
     return;
   }
-  if (!validateInput(typeInput)) {
+  if (!validateInput(typeInput, "Please select property type")) {
     return;
   }
-  if (!validateInput(finishInput)) {
+  if (!validateInput(finishInput, "Please select finish quality")) {
     return;
   }
-  if (!validateInput(ossInput)) {
+  if (!validateInput(ossInput, "Please select outsite space")) {
     return;
   }
-  if (!validateInput(parkingInput)) {
+  if (!validateInput(parkingInput, "Please select number of parking spaces")) {
     return;
   } else
     submitSelection(
