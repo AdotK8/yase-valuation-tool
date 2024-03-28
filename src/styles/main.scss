@@ -113,7 +113,11 @@ input {
   }
 }
 
-.square-input {
+#square-input,
+#first-name-input,
+#second-name-input,
+#email-input,
+#number-input {
   padding-left: 1rem;
 }
 

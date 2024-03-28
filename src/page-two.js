@@ -1,4 +1,5 @@
 import clearWidget from "./clear-container";
+import pageThreeLoad from "./page-three";
 
 export default function pageTwoLoad(userInput) {
   clearWidget();
@@ -37,14 +38,14 @@ function validateInput(input, errorMessage = "Please select an option") {
 }
 
 function errorHandling(userInput) {
-  const bedInput = document.querySelector("#bedroom-input");
-  const bathInput = document.querySelector("#bathroom-input");
-  const squareInput = document.querySelector(".square-input");
-  const dateInput = document.querySelector("#date-input");
-  const typeInput = document.querySelector("#type-input");
-  const finishInput = document.querySelector("#finish-input");
-  const ossInput = document.querySelector("#oss-input");
-  const parkingInput = document.querySelector("#parking-input");
+  const bedInput = document.getElementById("bedroom-input");
+  const bathInput = document.getElementById("bathroom-input");
+  const squareInput = document.getElementById("square-input");
+  const dateInput = document.getElementById("date-input");
+  const typeInput = document.getElementById("type-input");
+  const finishInput = document.getElementById("finish-input");
+  const ossInput = document.getElementById("oss-input");
+  const parkingInput = document.getElementById("parking-input");
 
   if (!validateInput(bedInput)) {
     return;
@@ -84,6 +85,7 @@ function submitSelection(userInput) {
   userInput.sellOrLet = document.querySelector(".selected").textContent;
 
   console.log(userInput);
+  pageThreeLoad(userInput);
 }
 
 function loadButtonFunctionality() {
@@ -158,15 +160,15 @@ function loadBedAndBath() {
 
   bedAndBathContainer.classList.add("row-input-container");
 
-  for (var i = 0; i <= 5; i++) {
-    var option = document.createElement("option");
+  for (let i = 0; i <= 5; i++) {
+    const option = document.createElement("option");
     option.value = i;
     option.text = i === 0 ? "Studio" : i + " Bedroom(s)";
     bedDropdown.appendChild(option);
   }
 
-  for (var i = 0; i <= 5; i++) {
-    var option = document.createElement("option");
+  for (let i = 0; i <= 5; i++) {
+    const option = document.createElement("option");
     option.value = i;
     option.text = i === 0 ? "0 Bathrooms" : i + " Bathroom(s)";
     bathDropdown.appendChild(option);
@@ -188,6 +190,7 @@ function loadSquareInput() {
   squareInput.type = "number";
   squareInput.placeholder = "Approximate internal square footage of property";
   squareInput.classList.add("square-input");
+  squareInput.setAttribute("id", "square-input");
   squareInput.setAttribute("min", "300");
 
   container.appendChild(squareInput);
@@ -356,7 +359,8 @@ function loadParkingOss() {
   for (let i = 0; i <= 4; i++) {
     const option = document.createElement("option");
     option.value = i.toString();
-    option.text = i === 0 ? "0" : i.toString();
+    option.text =
+      i === 0 ? "0" + " Parking space(s)" : i.toString() + " Parking space(s)";
     parkingDropdown.appendChild(option);
   }
 
@@ -373,18 +377,10 @@ function loadParkingOss() {
 function loadBottom() {
   const container = document.querySelector(".container");
   const getValButton = document.createElement("button");
-  const disclaimer = document.createElement("p");
 
   getValButton.setAttribute("id", "button1");
   getValButton.setAttribute("type", "submit");
   getValButton.innerHTML = "GET INSTANT VALUATION";
 
-  const privacyPolicyLink = document.createElement("a");
-  privacyPolicyLink.href = "https://www.yaseproperty.com/legal";
-  privacyPolicyLink.textContent = "privacy policy";
-  disclaimer.innerHTML = "By proceeding you agree to our ";
-  disclaimer.appendChild(privacyPolicyLink);
-
   container.appendChild(getValButton);
-  container.appendChild(disclaimer);
 }
