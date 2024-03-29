@@ -10,7 +10,7 @@ export default function pageTwoLoad(userInput) {
   loadDateAndType();
   loadFinish();
   loadParkingOss();
-  loadBottom();
+  loadBottomSection();
   loadButtonFunctionality();
   checkValidSelection(userInput);
 }
@@ -145,8 +145,6 @@ function loadBedAndBath() {
   const defaultBedrooms = document.createElement("option");
   const defaultBathrooms = document.createElement("option");
   const bedAndBathContainer = document.createElement("div");
-  const bedContainer = document.createElement("div");
-  const bathContainer = document.createElement("div");
 
   bedDropdown.setAttribute("id", "bedroom-input");
   bathDropdown.setAttribute("id", "bathroom-input");
@@ -186,10 +184,8 @@ function loadBedAndBath() {
 
   bathDropdown.appendChild(defaultBathrooms);
   bedDropdown.appendChild(defaultBedrooms);
-  bedContainer.appendChild(bedDropdown);
-  bathContainer.appendChild(bathDropdown);
-  bedAndBathContainer.appendChild(bedContainer);
-  bedAndBathContainer.appendChild(bathContainer);
+  bedAndBathContainer.appendChild(bedDropdown);
+  bedAndBathContainer.appendChild(bathDropdown);
   container.appendChild(bedAndBathContainer);
 }
 
@@ -213,8 +209,6 @@ function loadDateAndType() {
   const defaultDate = document.createElement("option");
   const defaultType = document.createElement("option");
   const dateAndTypeContainer = document.createElement("div");
-  const dateContainer = document.createElement("div");
-  const typeContainer = document.createElement("div");
 
   dateDropdown.name = "date";
   typeDropdown.name = "type";
@@ -270,10 +264,8 @@ function loadDateAndType() {
 
   dateDropdown.appendChild(defaultDate);
   typeDropdown.appendChild(defaultType);
-  dateContainer.appendChild(dateDropdown);
-  typeContainer.appendChild(typeDropdown);
-  dateAndTypeContainer.appendChild(dateContainer);
-  dateAndTypeContainer.appendChild(typeContainer);
+  dateAndTypeContainer.appendChild(dateDropdown);
+  dateAndTypeContainer.appendChild(typeDropdown);
   container.appendChild(dateAndTypeContainer);
 }
 
@@ -325,8 +317,6 @@ function loadParkingOss() {
   const defaultOss = document.createElement("option");
   const defaultParking = document.createElement("option");
   const parkingOssContainer = document.createElement("div");
-  const ossContainer = document.createElement("div");
-  const parkingContainer = document.createElement("div");
 
   ossDropdown.setAttribute("id", "oss-input");
   parkingDropdown.setAttribute("id", "parking-input");
@@ -375,19 +365,17 @@ function loadParkingOss() {
 
   ossDropdown.appendChild(defaultOss);
   parkingDropdown.appendChild(defaultParking);
-
-  ossContainer.appendChild(ossDropdown);
-  parkingContainer.appendChild(parkingDropdown);
-  parkingOssContainer.appendChild(ossContainer);
-  parkingOssContainer.appendChild(parkingContainer);
+  parkingOssContainer.appendChild(ossDropdown);
+  parkingOssContainer.appendChild(parkingDropdown);
   container.appendChild(parkingOssContainer);
 }
 
-function loadBottom() {
+function loadBottomSection() {
   const container = document.querySelector(".container");
   const getValButton = document.createElement("button");
 
   getValButton.setAttribute("id", "page-two-button");
+  getValButton.classList.add("button-next");
   getValButton.setAttribute("type", "submit");
   getValButton.innerHTML = "GET INSTANT VALUATION";
 

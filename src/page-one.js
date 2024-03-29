@@ -1,7 +1,7 @@
 import pageTwoLoad from "./page-two";
 
 export default function pageOneLoad(userInput) {
-  const inputField = document.querySelector("#postcodeInput");
+  const inputField = document.querySelector("#postcode-input");
   inputField.addEventListener("input", function () {
     inputField.setCustomValidity("");
   });
@@ -11,7 +11,7 @@ export default function pageOneLoad(userInput) {
     .addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default form submission behavior
 
-      const inputField = document.querySelector("#postcodeInput");
+      const inputField = document.querySelector("#postcode-input");
       const postcodeInput = inputField.value.trim();
       const postcodeRegex = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
 

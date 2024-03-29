@@ -1,11 +1,13 @@
 import clearWidget from "./clear-container";
 import validateInput from "./validate-input";
+import phoneIconImg from "./assets/phone.svg";
+import emailIconImg from "./assets/email.svg";
 
 export default function pageThreeLoad(userInput) {
   clearWidget();
   loadNameFields();
   loadEmailAndNumberFields();
-  loadBottom();
+  loadBottomSection();
   checkValidSelection(userInput);
 }
 
@@ -88,8 +90,8 @@ function loadNameFields() {
   secondNameField.setAttribute("id", "second-name-input");
   nameFieldsContainer.classList.add("row-input-container");
 
-  firstNameField.setAttribute("placeholder", "Please enter your first name");
-  secondNameField.setAttribute("placeholder", "Please enter your surname");
+  firstNameField.setAttribute("placeholder", "First name");
+  secondNameField.setAttribute("placeholder", "Surname");
   header.innerHTML = "Your details";
   nameFieldsContainer.appendChild(firstNameField);
   nameFieldsContainer.appendChild(secondNameField);
@@ -103,21 +105,40 @@ function loadEmailAndNumberFields() {
 
   const emailField = document.createElement("input");
   const numberField = document.createElement("input");
+  const emailIcon = document.createElement("img");
+  const phoneIcon = document.createElement("img");
+
+  const emailContainer = document.createElement("div");
+  const phoneContainer = document.createElement("div");
 
   emailField.setAttribute("type", "email");
   numberField.setAttribute("type", "tel");
 
+  emailIcon.src = emailIconImg;
+  phoneIcon.src = phoneIconImg;
+
   emailField.setAttribute("id", "email-input");
   numberField.setAttribute("id", "number-input");
+  emailContainer.classList.add("postcode-container");
+  phoneContainer.classList.add("postcode-container");
+  emailIcon.classList.add("input-icons");
+  emailIcon.setAttribute("id", "map-icon");
+  phoneIcon.classList.add("input-icons");
+  phoneIcon.setAttribute("id", "map-icon");
 
-  emailField.setAttribute("placeholder", "Please enter your email address");
-  numberField.setAttribute("placeholder", "Please enter your phone number");
+  emailField.setAttribute("placeholder", "Email address");
+  numberField.setAttribute("placeholder", "Phone number");
 
-  container.appendChild(emailField);
-  container.appendChild(numberField);
+  emailContainer.appendChild(emailIcon);
+  emailContainer.appendChild(emailField);
+  phoneContainer.appendChild(phoneIcon);
+  phoneContainer.appendChild(numberField);
+
+  container.appendChild(emailContainer);
+  container.appendChild(phoneContainer);
 }
 
-function loadBottom() {
+function loadBottomSection() {
   const container = document.querySelector(".container");
   const getValButton = document.createElement("button");
   const disclaimer = document.createElement("p");
@@ -125,6 +146,8 @@ function loadBottom() {
   getValButton.setAttribute("id", "page-three-button");
   getValButton.setAttribute("type", "submit");
   getValButton.innerHTML = "GET INSTANT VALUATION";
+  getValButton.classList.add("button-next");
+  disclaimer.classList.add("disclaimer");
 
   const privacyPolicyLink = document.createElement("a");
   privacyPolicyLink.href = "https://www.yaseproperty.com/legal";

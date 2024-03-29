@@ -4,11 +4,21 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-$yase-purple: #a4a4eb;
-$border-colour: #353535;
-$shadow-colour: #a09f9f;
-$yase-yellow: #fbf3dc;
-$input-colour: #636363;
+$yase-purple: #8c8bd8;
+$border-colour: #ffffff;
+$shadow-colour: #000000;
+$yase-yellow: #240b00;
+$input-colour: #ffffff;
+
+h1 {
+  margin-bottom: -10px;
+  color: white;
+}
+
+p {
+  margin-bottom: -5px;
+  color: white;
+}
 
 .input-icons {
   position: absolute;
@@ -26,14 +36,22 @@ $input-colour: #636363;
 
 .container {
   margin: 2rem;
-  outline: 1px solid $border-colour;
+  outline: 5px solid $border-colour;
   display: flex;
   flex-direction: column;
   //   width: 40%;
+  min-width: 200px;
   gap: 1rem;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: $shadow-colour 0px 7px 29px 0px;
+  background-color: $yase-purple;
+  background-image: linear-gradient(
+    to top,
+    $yase-purple,
+    darken($yase-purple, 5%)
+  );
+  color: white; /* Ensure text is readable over the gradient background */
   > .top,
   .postcode-container {
     display: flex;
@@ -43,86 +61,36 @@ $input-colour: #636363;
   }
 }
 
-input {
+input,
+select {
+  box-shadow: rgba(255, 255, 255, 0.257) 0px 30px 60px -12px inset,
+    rgb(255, 254, 254, 0.257) 0px 18px 36px -18px inset;
+  background-color: $yase-purple;
   display: flex;
   flex: 1;
   margin: 0;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem 1rem 1rem 1rem;
   border: none;
-  outline: 1px solid $border-colour;
+  font-size: 1rem;
   color: $input-colour;
   box-sizing: border-box;
-  //   text-overflow: clip;
+  text-overflow: clip;
   &:focus {
-    outline: 1px solid $yase-purple;
+    outline: 1px solid $input-colour;
   }
 }
 
-#page-one-button,
-#page-two-button,
-#page-three-button {
-  padding: 1rem;
-  font-weight: 700;
-  background-color: $yase-purple;
-  color: white;
-  border: none;
-  &:hover {
-    background-color: lighten($yase-purple, 10%);
-    cursor: pointer;
-  }
-}
+// select {
+//   width: 100%;
+//   max-width: 100%;
+// }
 
-.button-container {
-  display: flex;
-  gap: 1rem;
-
-  > button {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    padding: 1rem;
-    font-weight: 700;
-    background-color: lighten($yase-purple, 10%);
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  > button.selected {
-    background-color: $yase-purple;
-    outline: 1px solid $border-colour;
-  }
-  > button:not(.selected):hover {
-    background-color: $yase-purple;
-    outline: 1px solid $border-colour;
-  }
-}
-
-.row-input-container {
-  display: flex;
-  gap: 1rem;
-  flex-direction: row;
-  > div {
-    display: flex;
-    flex: 1;
-    select {
-      outline: 1px solid $border-colour;
-      border: none;
-      display: flex;
-      flex: 1;
-      padding: 1rem;
-      box-sizing: border-box;
-      text-overflow: clip;
-      width: 100%;
-    }
-  }
-}
-
-#square-input,
-#first-name-input,
-#second-name-input,
-#email-input,
-#number-input {
-  padding-left: 1rem;
+#postcode-input,
+#number-input,
+#email-input {
+  padding-left: 2.2rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 select,
@@ -130,21 +98,42 @@ input::placeholder {
   color: $input-colour;
 }
 
-#finish-input {
+.button-container {
   display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 1rem 1rem 1rem 1rem;
-  border: none;
-  outline: 1px solid $border-colour;
-  &:focus {
-    outline: 1px solid $yase-purple;
+  gap: 1rem;
+
+  > button {
+    background-color: $yase-purple;
+    outline: 1px solid $border-colour;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  > button.selected {
+    background-color: lighten($yase-purple, 10%);
+  }
+  > button:not(.selected):hover {
+    background-color: lighten($yase-purple, 10%);
+  }
+}
+
+.row-input-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  > select {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 #first-name-input,
 #second-name-input {
-  outline: 1px solid $border-colour;
   border: none;
   display: flex;
   flex: 1;
@@ -152,4 +141,62 @@ input::placeholder {
   box-sizing: border-box;
   text-overflow: clip;
   width: 100%;
+}
+
+.disclaimer {
+  margin-top: -5px;
+  > a {
+    color: $input-colour;
+  }
+}
+
+//next page button css
+#page-one-button,
+#page-two-button,
+#page-three-button,
+.button-next {
+  align-items: center;
+  appearance: none;
+  background-color: $border-colour;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-next:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.button-next:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-next:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
 }

@@ -1,6 +1,6 @@
 import "./styles/main.scss";
 import mapIcon from "./assets/map-marker.svg";
-import valuationIcon from "./assets/valuation.svg";
+import valuationIcon from "./assets/logo.png";
 import pageThreeLoad from "./page-three";
 import pageOneLoad from "./page-one";
 import pageTwoLoad from "./page-two";
@@ -17,6 +17,6 @@ valuationIconElement.src = valuationIcon;
 const userInput = {};
 
 //loading first page
-// pageOneLoad(userInput);
+pageOneLoad(userInput);
 // pageTwoLoad(userInput);
-pageThreeLoad(userInput);
+// pageThreeLoad(userInput);
