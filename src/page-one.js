@@ -12,7 +12,7 @@ export default function pageOneLoad(userInput) {
       event.preventDefault(); // Prevent default form submission behavior
 
       const inputField = document.querySelector("#postcode-input");
-      const postcodeInput = inputField.value.trim();
+      const postcodeInput = inputField.value.replace(/\s/g, "");
       const postcodeRegex = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
 
       if (!postcodeRegex.test(postcodeInput)) {

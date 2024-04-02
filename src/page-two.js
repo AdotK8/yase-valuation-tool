@@ -235,7 +235,7 @@ function loadDateAndType() {
       option.value = "pre1914";
       option.text = "Pre 1914";
     } else if (i === 1) {
-      option.value = "1914-2000";
+      option.value = "1914_2000";
       option.text = "1914-2000";
     } else if (i === 2) {
       option.value = "2000onwards";

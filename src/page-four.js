@@ -1,38 +1,99 @@
 import clearWidget from "./clear-container";
-import processData from "./data-process";
+import { processSaleData, processRentData, fetchData } from "./data-process";
 import checkImgIcon from "./assets/check-circle.svg";
 
-export default function pageFourLoad() {
+export default function pageFourLoad(userInput) {
+  // const userInput = {
+  //   bathrooms: "1",
+  //   bedrooms: "1",
+  //   buildDate: "1914_2000",
+  //   emailInput: "ahmedkhan@hotmail.com",
+  //   finishQuality: "average",
+  //   firstName: "Ahmed",
+  //   oss: "none",
+  //   parking: "1",
+  //   phoneInput: "07853114511",
+  //   postcode: "SW1V3JL",
+  //   propertyType: "flat",
+  //   secondNameInput: "Khan",
+  //   sellOrLet: "SELL",
+  //   squareFootage: "700",
+  // };
+
   clearWidget();
+  // Call the fetchData function and handle the promises
 
-  const saleResult = {
-    result: 390000,
-    margin: 20000,
-  };
+  fetchData(userInput)
+    .then(([saleData, rentData]) => {
+      // Check if sale and rent data are successful
+      const saleSuccess = saleData && saleData.status === "success";
+      const rentSuccess = rentData && rentData.status === "success";
 
-  const rentalResult = {
-    estimate: 332,
-    unit: "gbp_per_week",
-  };
+      if (saleSuccess || rentSuccess) {
+        // Run code if either sale or rent data is successful
+        const resultDisplayContainer = initialPageLoad();
+        //display sale results
+        if (saleSuccess) {
+          console.log("Sale data was successful");
+          console.log(saleData);
+          const processedSaleData = processSaleData(saleData);
+          console.log(processedSaleData);
 
-  const processedData = processData(saleResult, rentalResult);
-  console.log(processedData);
+          loadSingleLine(
+            resultDisplayContainer,
+            processedSaleData.minimum,
+            "Minimum"
+          );
+          loadSingleLine(
+            resultDisplayContainer,
+            processedSaleData.average,
+            "Average"
+          );
+          loadSingleLine(
+            resultDisplayContainer,
+            processedSaleData.maximum,
+            "Maximum"
+          );
+        }
+        //display rent results
+        if (rentSuccess) {
+          console.log("Rent data was successful");
+          console.log(rentData);
+          const processedRentData = processRentData(rentData);
+          console.log(processedRentData);
+
+          loadSingleLine(
+            resultDisplayContainer,
+            processedRentData.rent,
+            "Estimated Rental"
+          );
+        }
+      } else {
+        // Run code if both sale and rent data are unsuccessful
+        console.error("Both sale and rent data failed to fetch");
+      }
+    })
+    .catch((error) => {
+      // Handle errors
+      console.error("Error fetching data:", error);
+    })
+    .finally(() => {
+      loadMessage();
+      buttonClick();
+    });
+}
+
+function initialPageLoad() {
+  // Execute loadMessage() and buttonClick() after data processing and display
   const container = document.querySelector(".container");
+  loadHeader();
+
   const resultDisplayContainer = document.createElement("div");
   resultDisplayContainer.classList.add("results-display-container");
 
-  loadHeader();
-  loadSingleLine(resultDisplayContainer, processedData.minimum, "Minimum");
-  loadSingleLine(resultDisplayContainer, processedData.average, "Average");
-  loadSingleLine(resultDisplayContainer, processedData.maximum, "Maximum");
-  loadSingleLine(
-    resultDisplayContainer,
-    processedData.rent,
-    "Estimated Rental"
-  );
   container.appendChild(resultDisplayContainer);
-  loadMessage();
-  buttonClick();
+
+  return resultDisplayContainer;
 }
 
 function loadHeader() {
