@@ -13,8 +13,17 @@ export default function validateInput(
     input.setCustomValidity("Please enter a valid email address");
     input.reportValidity();
     return false;
-  } else if (input.type === "number" && parseInt(input.value) < 300) {
-    input.setCustomValidity("Please ensure you are using square footage");
+  } else if (
+    input.type === "number" &&
+    (isNaN(input.value) || parseInt(input.value) < 300)
+  ) {
+    input.setCustomValidity(
+      "Please ensure you are using a valid number greater than or equal to 300"
+    );
+    input.reportValidity();
+    return false;
+  } else if (input.type === "tel" && !isValidPhoneNumber(input.value)) {
+    input.setCustomValidity("Please enter a valid phone number");
     input.reportValidity();
     return false;
   }
@@ -23,6 +32,14 @@ export default function validateInput(
 }
 
 function isValidEmail(email) {
+  // Regular expression to validate email (supports various formats)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+function isValidPhoneNumber(phoneNumber) {
+  // Regular expression to validate phone numbers (supports various formats)
+  const phoneRegex =
+    /^(?:(\+?(\d{1,3}))?[\s.-]?)?((\(\d{3}\))|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$/;
+  return phoneRegex.test(phoneNumber);
 }

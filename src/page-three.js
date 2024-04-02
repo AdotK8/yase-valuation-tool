@@ -2,6 +2,7 @@ import clearWidget from "./clear-container";
 import validateInput from "./validate-input";
 import phoneIconImg from "./assets/phone.svg";
 import emailIconImg from "./assets/email.svg";
+import pageFourLoad from "./page-four";
 
 export default function pageThreeLoad(userInput) {
   clearWidget();
@@ -73,6 +74,7 @@ function submitSelection(
   userInput.phoneInput = phoneInput.value;
 
   console.log(userInput);
+  pageFourLoad(userInput);
 }
 
 function loadNameFields() {

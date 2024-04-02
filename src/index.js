@@ -2,9 +2,11 @@ import "./styles/main.scss";
 import mapIcon from "./assets/map-marker.svg";
 import valuationIcon from "./assets/logo.png";
 import londonImg from "./assets/london.jpg";
-import pageThreeLoad from "./page-three";
 import pageOneLoad from "./page-one";
 import pageTwoLoad from "./page-two";
+import pageThreeLoad from "./page-three";
+import pageFourLoad from "./page-four";
+import processData from "./data-process";
 
 //filling in images for map icon and valuation image
 
@@ -21,6 +23,8 @@ londonImgElement.src = londonImg;
 const userInput = {};
 
 //loading first page
-pageOneLoad(userInput);
+// pageOneLoad(userInput);
 // pageTwoLoad(userInput);
-// pageThreeLoad(userInput);
+pageThreeLoad(userInput);
+// pageFourLoad();
+// processData();

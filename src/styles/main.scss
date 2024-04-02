@@ -1,5 +1,5 @@
 * {
-  //   outline: solid black;
+  // outline: solid black;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
@@ -7,7 +7,6 @@
 $yase-purple: #8c8bd8;
 $border-colour: #ffffff;
 $shadow-colour: #000000;
-$yase-yellow: #240b00;
 $input-colour: #ffffff;
 
 h1 {
@@ -16,7 +15,6 @@ h1 {
 }
 
 p {
-  margin-bottom: -5px;
   color: white;
 }
 
@@ -32,6 +30,11 @@ p {
 #valuation-icon {
   max-width: 100px;
   max-height: 100px;
+}
+
+.check {
+  max-width: 25px;
+  max-height: 25px;
 }
 
 #london-banner {
@@ -50,7 +53,7 @@ p {
   border-radius: 10px;
   box-shadow: $shadow-colour 0px 7px 29px 0px;
   background-color: $yase-purple;
-  width: 40%;
+  //   width: 40%;
 }
 
 .container {
@@ -96,11 +99,6 @@ select {
     outline: 1px solid $input-colour;
   }
 }
-
-// select {
-//   width: 100%;
-//   max-width: 100%;
-// }
 
 #postcode-input,
 #number-input,
@@ -167,10 +165,33 @@ input::placeholder {
   }
 }
 
+.value-list-item {
+  gap: 10px;
+  color: $input-colour;
+  display: flex;
+  align-items: center;
+  > .value-price {
+    margin-left: auto;
+  }
+}
+
+.results-display-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 0.5px rgba(255, 255, 255, 0.594);
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  > p {
+    color: #ffffffb8;
+  }
+}
+
 //next page button css
-#page-one-button,
-#page-two-button,
-#page-three-button,
+
 .button-next {
   align-items: center;
   appearance: none;
