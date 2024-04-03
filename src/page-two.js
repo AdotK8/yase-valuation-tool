@@ -234,13 +234,13 @@ function loadDateAndType() {
   for (let i = 0; i < 3; i++) {
     const option = document.createElement("option");
     if (i === 0) {
-      option.value = "pre1914";
+      option.value = "pre_1914";
       option.text = "Pre 1914";
     } else if (i === 1) {
       option.value = "1914_2000";
       option.text = "1914-2000";
     } else if (i === 2) {
-      option.value = "2000onwards";
+      option.value = "2000_onwards";
       option.text = "2000 Onwards";
     }
     dateDropdown.appendChild(option);
