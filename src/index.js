@@ -7,6 +7,7 @@ import pageTwoLoad from "./page-two";
 import pageThreeLoad from "./page-three";
 import pageFourLoad from "./page-four";
 import processData from "./data-process";
+import { displayMockData } from "./page-four";
 
 //filling in images for map icon and valuation image
 
@@ -27,4 +28,5 @@ pageOneLoad(userInput);
 // pageTwoLoad(userInput);
 // pageThreeLoad(userInput);
 // pageFourLoad();
+// displayMockData();
 // processData();

@@ -8,14 +8,38 @@ $yase-purple: #8c8bd8;
 $border-colour: #ffffff;
 $shadow-colour: #000000;
 $input-colour: #ffffff;
+$faded-colour: #ffffffbd;
 
-h1 {
+h1,
+h2 {
   margin-bottom: -10px;
   color: white;
 }
 
-p {
-  color: white;
+h2 {
+  font-size: larger;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+// p {
+//   // color: white;
+// }
+
+.intro {
+  > p {
+    color: $input-colour;
+  }
+}
+
+.form-header {
+  color: $input-colour;
+}
+
+.form-header + div {
+  margin-top: -10px;
 }
 
 .input-icons {
@@ -160,6 +184,7 @@ input::placeholder {
 
 .disclaimer {
   margin-top: -5px;
+  color: $input-colour;
   > a {
     color: $input-colour;
   }
@@ -173,6 +198,15 @@ input::placeholder {
   > .value-price {
     margin-left: auto;
   }
+}
+
+#average.value-list-item {
+  font-size: larger;
+}
+
+#minimum,
+#maximum {
+  color: $faded-colour;
 }
 
 .results-display-container {

@@ -94,6 +94,7 @@ function loadNameFields() {
 
   firstNameField.setAttribute("placeholder", "First name");
   secondNameField.setAttribute("placeholder", "Surname");
+  header.classList.add("form-header");
   header.innerHTML = "Your details";
   nameFieldsContainer.appendChild(firstNameField);
   nameFieldsContainer.appendChild(secondNameField);

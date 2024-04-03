@@ -121,6 +121,7 @@ function loadTop() {
   const questionText = document.createElement("p");
   const sellButton = document.createElement("button");
   const letButton = document.createElement("button");
+  questionText.classList.add("form-header");
   sellButton.setAttribute("id", "button-sell");
   letButton.setAttribute("id", "button-let");
   const buttonContainer = document.createElement("div");
@@ -150,6 +151,7 @@ function loadBedAndBath() {
   bathDropdown.setAttribute("id", "bathroom-input");
 
   propertyDetailsText.innerHTML = "Your property details";
+  propertyDetailsText.classList.add("form-header");
   container.appendChild(propertyDetailsText);
 
   bedDropdown.name = "bedrooms";
