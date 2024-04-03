@@ -4,8 +4,8 @@ import phoneIconImg from "./assets/phone.svg";
 import emailIconImg from "./assets/email.svg";
 import pageFourLoad from "./page-four";
 
-export default function pageThreeLoad(userInput) {
-  clearWidget();
+export default async function pageThreeLoad(userInput) {
+  await clearWidget();
   loadNameFields();
   loadEmailAndNumberFields();
   loadBottomSection();

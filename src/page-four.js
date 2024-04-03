@@ -4,36 +4,39 @@ import checkImgIcon from "./assets/check-circle.svg";
 import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
 
-export default function pageFourLoad() {
-  const userInput = {
-    bathrooms: "1",
-    bedrooms: "1",
-    buildDate: "1914_2000",
-    emailInput: "ahmedkhan@hotmail.com",
-    finishQuality: "average",
-    firstName: "Ahmed",
-    oss: "none",
-    parking: "1",
-    phoneInput: "07853114511",
-    postcode: "SW3JL",
-    propertyType: "flat",
-    secondNameInput: "Khan",
-    sellOrLet: "SELL",
-    squareFootage: "700",
-  };
+export default async function pageFourLoad(userInput) {
+  // const userInput = {
+  //   bathrooms: "1",
+  //   bedrooms: "1",
+  //   buildDate: "1914_2000",
+  //   emailInput: "ahmedkhan@hotmail.com",
+  //   finishQuality: "average",
+  //   firstName: "Ahmed",
+  //   oss: "none",
+  //   parking: "1",
+  //   phoneInput: "07853114511",
+  //   postcode: "SW1V3JL",
+  //   propertyType: "flat",
+  //   secondNameInput: "Khan",
+  //   sellOrLet: "SELL",
+  //   squareFootage: "700",
+  // };
 
-  clearWidget();
+  await clearWidget();
 
-  // Call the fetchData function and handle the promises
+  loadingPage();
+
   fetchData(userInput)
     .then(([saleData, rentData]) => {
       // Check if sale and rent data are successful
       const saleSuccess = saleData && saleData.status === "success";
       const rentSuccess = rentData && rentData.status === "success";
+      removeLoader();
 
       if (saleSuccess || rentSuccess) {
         // Run code if either sale or rent data is successful
         const resultDisplayContainer = initialPageLoad();
+        // clear loading screen
         //display sale results
         if (saleSuccess) {
           console.log("Sale data was successful");
@@ -269,4 +272,18 @@ function loadError() {
   errorContainer.appendChild(errorMessage);
 
   container.appendChild(errorContainer);
+}
+
+function loadingPage() {
+  const container = document.querySelector(".container");
+  const loadingElement = document.createElement("div");
+
+  loadingElement.classList.add("loader");
+
+  container.appendChild(loadingElement);
+}
+
+function removeLoader() {
+  const loaderElement = document.querySelector(".loader");
+  loaderElement.remove();
 }

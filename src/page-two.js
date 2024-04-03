@@ -2,8 +2,8 @@ import clearWidget from "./clear-container";
 import pageThreeLoad from "./page-three";
 import validateInput from "./validate-input";
 
-export default function pageTwoLoad(userInput) {
-  clearWidget();
+export default async function pageTwoLoad(userInput) {
+  await clearWidget();
   loadTop();
   loadBedAndBath();
   loadSquareInput();
