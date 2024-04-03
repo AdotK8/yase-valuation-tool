@@ -24,10 +24,6 @@ h1 {
   font-size: 1.3rem;
 }
 
-// p {
-//   // color: white;
-// }
-
 .intro {
   > p {
     color: $input-colour;
@@ -61,12 +57,17 @@ h1 {
   max-height: 25px;
 }
 
+#error-icon {
+  max-width: 40px;
+  max-height: 40px;
+}
+
 #london-banner {
   position: relative;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-top-left-radius: 10px; /* Apply border radius to top-left corner */
+  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
@@ -82,7 +83,7 @@ h1 {
 
 .container {
   outline: 5px solid white;
-  border-bottom-left-radius: 10px; /* Apply border radius to top-left corner */
+  border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -221,6 +222,18 @@ input::placeholder {
   gap: 5px;
   > p {
     color: #ffffffb8;
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: rwo;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-bottom: solid 0.5px rgba(255, 255, 255, 0.594);
+  > p {
+    color: $input-colour;
   }
 }
 

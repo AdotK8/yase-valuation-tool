@@ -2,24 +2,25 @@ import clearWidget from "./clear-container";
 import { processSaleData, processRentData, fetchData } from "./data-process";
 import checkImgIcon from "./assets/check-circle.svg";
 import checkImgIconFade from "./assets/check-circle-faded.svg";
+import errorIconImg from "./assets/alert-circle.svg";
 
-export default function pageFourLoad(userInput) {
-  // const userInput = {
-  //   bathrooms: "1",
-  //   bedrooms: "1",
-  //   buildDate: "1914_2000",
-  //   emailInput: "ahmedkhan@hotmail.com",
-  //   finishQuality: "average",
-  //   firstName: "Ahmed",
-  //   oss: "none",
-  //   parking: "1",
-  //   phoneInput: "07853114511",
-  //   postcode: "SW1V3JL",
-  //   propertyType: "flat",
-  //   secondNameInput: "Khan",
-  //   sellOrLet: "SELL",
-  //   squareFootage: "700",
-  // };
+export default function pageFourLoad() {
+  const userInput = {
+    bathrooms: "1",
+    bedrooms: "1",
+    buildDate: "1914_2000",
+    emailInput: "ahmedkhan@hotmail.com",
+    finishQuality: "average",
+    firstName: "Ahmed",
+    oss: "none",
+    parking: "1",
+    phoneInput: "07853114511",
+    postcode: "SW3JL",
+    propertyType: "flat",
+    secondNameInput: "Khan",
+    sellOrLet: "SELL",
+    squareFootage: "700",
+  };
 
   clearWidget();
 
@@ -80,6 +81,7 @@ export default function pageFourLoad(userInput) {
       } else {
         // Run code if both sale and rent data are unsuccessful
         console.error("Both sale and rent data failed to fetch");
+        loadError();
       }
     })
     .catch((error) => {
@@ -247,4 +249,24 @@ function loadFinalMessage() {
     "We greatly appreciate you reaching out to us. A member of our team will be reaching out to you shortly using the contact information you've provided.<br> <br> We're excited to have a conversation with you about your property and help you in any way we can!";
   messageContainer.appendChild(finalHeader);
   messageContainer.appendChild(finalMessage);
+}
+
+function loadError() {
+  const container = document.querySelector(".container");
+
+  const errorContainer = document.createElement("div");
+  const errorIcon = document.createElement("img");
+  const errorMessage = document.createElement("p");
+
+  errorContainer.classList.add("error-container");
+  errorIcon.setAttribute("id", "error-icon");
+
+  errorIcon.src = errorIconImg;
+  errorMessage.innerHTML =
+    "There seems to have been an error fetching your valuation. <br> However, you can still get an accurate valuation by clicking below";
+
+  errorContainer.appendChild(errorIcon);
+  errorContainer.appendChild(errorMessage);
+
+  container.appendChild(errorContainer);
 }
