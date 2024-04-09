@@ -157,6 +157,7 @@ input::placeholder {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
   }
   > button.selected {
     background-color: lighten($yase-purple, 10%);

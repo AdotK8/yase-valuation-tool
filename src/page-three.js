@@ -155,6 +155,7 @@ function loadBottomSection() {
   const privacyPolicyLink = document.createElement("a");
   privacyPolicyLink.href = "https://www.yaseproperty.com/legal";
   privacyPolicyLink.textContent = "privacy policy";
+  privacyPolicyLink.setAttribute("target", "_blank");
   disclaimer.innerHTML = "By proceeding you agree to our ";
   disclaimer.appendChild(privacyPolicyLink);
 

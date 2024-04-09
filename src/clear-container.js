@@ -6,7 +6,7 @@ export default function clearWidget() {
       while (container.firstChild) {
         container.removeChild(container.firstChild);
       }
-      resolve(); // Resolve the Promise after clearing is done
+      resolve();
     }, 300);
   });
 }

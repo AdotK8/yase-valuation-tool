@@ -1,6 +1,6 @@
 export function fetchData(userInput) {
   console.log(userInput);
-  const apiKey = "LJNWDYTNVO";
+  const apiKey = "Q2YMVNMFMV";
   const urls = [
     `https://api.propertydata.co.uk/valuation-sale?key=${apiKey}&postcode=${userInput.postcode}&internal_area=${userInput.squareFootage}&property_type=${userInput.propertyType}&construction_date=${userInput.buildDate}&bedrooms=${userInput.bedrooms}&bathrooms=${userInput.bathrooms}&finish_quality=${userInput.finishQuality}&outdoor_space=${userInput.oss}&off_street_parking=${userInput.parking}`,
     `https://api.propertydata.co.uk/valuation-rent?key=${apiKey}&postcode=${userInput.postcode}&internal_area=${userInput.squareFootage}&property_type=${userInput.propertyType}&construction_date=${userInput.buildDate}&bedrooms=${userInput.bedrooms}&bathrooms=${userInput.bathrooms}&finish_quality=${userInput.finishQuality}&outdoor_space=${userInput.oss}&off_street_parking=${userInput.parking}`,
