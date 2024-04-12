@@ -73,7 +73,6 @@ function submitSelection(
   userInput.emailInput = emailInput.value;
   userInput.phoneInput = phoneInput.value;
 
-  console.log(userInput);
   pageFourLoad(userInput);
 }
 

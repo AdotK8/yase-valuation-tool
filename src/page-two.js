@@ -95,7 +95,6 @@ function submitSelection(
   userInput.sellOrLet = document.querySelector(".selected").textContent;
 
   pageThreeLoad(userInput);
-  console.log(userInput);
 }
 
 function loadButtonFunctionality() {

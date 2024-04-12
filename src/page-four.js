@@ -4,33 +4,39 @@ import checkImgIcon from "./assets/check-circle.svg";
 import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
 
-export default async function pageFourLoad(userInput) {
-  // const userInput = {
-  //   bathrooms: "1",
-  //   bedrooms: "1",
-  //   buildDate: "1914_2000",
-  //   emailInput: "ahmedkhan@hotmail.com",
-  //   finishQuality: "average",
-  //   firstName: "Ahmed",
-  //   oss: "none",
-  //   parking: "1",
-  //   phoneInput: "07853114511",
-  //   postcode: "SW1V3JL",
-  //   propertyType: "flat",
-  //   secondNameInput: "Khan",
-  //   sellOrLet: "SELL",
-  //   squareFootage: "700",
-  // };
-
+export default async function pageFourLoad() {
   await clearWidget();
 
+  const userInput = {
+    bathrooms: "2",
+    bedrooms: "3",
+    buildDate: "1914_2000",
+    emailInput: "AHMED@HOTMAIL.COM",
+    finishQuality: "average",
+    firstName: "AHMED",
+    oss: "garden",
+    parking: "1",
+    phoneInput: "07853114511",
+    postcode: "E151SL",
+    propertyType: "terraced_house",
+    secondNameInput: "KHAN",
+    sellOrLet: "SELL",
+    squareFootage: "1200",
+  };
+
   loadingPage();
+
+  //initializing empty variables to store data and success status
+  let processedSaleData;
+  let processedRentData;
+  let saleSuccess;
+  let rentSuccess;
 
   fetchData(userInput)
     .then(([saleData, rentData]) => {
       // Check if sale and rent data are successful
-      const saleSuccess = saleData && saleData.status === "success";
-      const rentSuccess = rentData && rentData.status === "success";
+      saleSuccess = saleData && saleData.status === "success";
+      rentSuccess = rentData && rentData.status === "success";
       removeLoader();
 
       if (saleSuccess || rentSuccess) {
@@ -40,10 +46,7 @@ export default async function pageFourLoad(userInput) {
         //display sale results
         if (saleSuccess) {
           console.log("Sale data was successful");
-          console.log(saleData);
-          const processedSaleData = processSaleData(saleData);
-          console.log(processedSaleData);
-
+          processedSaleData = processSaleData(saleData);
           loadSingleLine(
             resultDisplayContainer,
             processedSaleData.minimum,
@@ -69,10 +72,7 @@ export default async function pageFourLoad(userInput) {
         //display rent results
         if (rentSuccess) {
           console.log("Rent data was successful");
-          console.log(rentData);
-          const processedRentData = processRentData(rentData);
-          console.log(processedRentData);
-
+          processedRentData = processRentData(rentData);
           loadSingleLine(
             resultDisplayContainer,
             processedRentData.rent,
@@ -94,6 +94,13 @@ export default async function pageFourLoad(userInput) {
     .finally(() => {
       loadMessage();
       buttonClick();
+      handleServer(
+        processedSaleData,
+        processedRentData,
+        userInput,
+        saleSuccess,
+        rentSuccess
+      );
     });
 }
 
@@ -153,6 +160,24 @@ export function displayMockData() {
   // Execute loadMessage() and buttonClick() after displaying mock data
   loadMessage();
   buttonClick();
+}
+
+function handleServer(
+  processedSaleData,
+  processedRentData,
+  userInput,
+  saleSuccess,
+  rentSuccess
+) {
+  // Check if sale and rent data are successful
+
+  if (saleSuccess && rentSuccess) {
+    //code for if both are successful
+  } else if (saleSuccess) {
+    //code if only sale is successful
+  } else if (rentSuccess) {
+    //code if only rent is successful
+  }
 }
 
 function initialPageLoad() {
