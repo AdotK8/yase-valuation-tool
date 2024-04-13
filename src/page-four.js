@@ -3,6 +3,7 @@ import { processSaleData, processRentData, fetchData } from "./data-process";
 import checkImgIcon from "./assets/check-circle.svg";
 import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
+import { handleServer } from "./endpoint";
 
 export default async function pageFourLoad() {
   await clearWidget();
@@ -18,7 +19,7 @@ export default async function pageFourLoad() {
     parking: "1",
     phoneInput: "07853114511",
     postcode: "E151SL",
-    propertyType: "terraced_house",
+    propertyType: "semi-detached_house",
     secondNameInput: "KHAN",
     sellOrLet: "SELL",
     squareFootage: "1200",
@@ -160,24 +161,6 @@ export function displayMockData() {
   // Execute loadMessage() and buttonClick() after displaying mock data
   loadMessage();
   buttonClick();
-}
-
-function handleServer(
-  processedSaleData,
-  processedRentData,
-  userInput,
-  saleSuccess,
-  rentSuccess
-) {
-  // Check if sale and rent data are successful
-
-  if (saleSuccess && rentSuccess) {
-    //code for if both are successful
-  } else if (saleSuccess) {
-    //code if only sale is successful
-  } else if (rentSuccess) {
-    //code if only rent is successful
-  }
 }
 
 function initialPageLoad() {
