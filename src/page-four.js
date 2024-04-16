@@ -9,12 +9,12 @@ export default async function pageFourLoad(userInput) {
   await clearWidget();
 
   // const userInput = {
-  //   bathrooms: "2",
-  //   bedrooms: "3",
+  //   bathrooms: "1",
+  //   bedrooms: "2",
   //   buildDate: "1914_2000",
-  //   emailInput: "AHMED@HOTMAIL.COM",
+  //   emailInput: "ahmedkhan895.ak@gmail.com",
   //   finishQuality: "average",
-  //   firstName: "AHMED",
+  //   firstName: "Ahmed",
   //   oss: "garden",
   //   parking: "1",
   //   phoneInput: "07853114511",

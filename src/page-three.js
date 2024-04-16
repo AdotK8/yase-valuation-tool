@@ -68,14 +68,27 @@ function submitSelection(
   emailInput,
   phoneInput
 ) {
-  userInput.firstName = firstNameInput.value;
-  userInput.secondNameInput = secondNameInput.value;
+  userInput.firstName = sentenceCaseName(firstNameInput.value);
+  userInput.secondNameInput = sentenceCaseName(secondNameInput.value);
   userInput.emailInput = emailInput.value;
   userInput.phoneInput = phoneInput.value;
 
-  pageFourLoad(userInput);
+  // pageFourLoad(userInput);
+  console.log(userInput);
+  console.log(typeof firstNameInput.value);
 }
 
+function sentenceCaseName(name) {
+  let words = name.toLowerCase().split(" ");
+
+  // Capitalize the first letter of each word
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+  }
+
+  // Join the words back into a single string and return
+  return words.join(" ");
+}
 function loadNameFields() {
   const container = document.querySelector(".container");
   const nameFieldsContainer = document.createElement("div");
