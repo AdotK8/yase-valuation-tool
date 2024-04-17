@@ -26,7 +26,7 @@ const userInput = {};
 //loading first page
 // pageOneLoad(userInput);
 // pageTwoLoad(userInput);
-pageThreeLoad(userInput);
-// pageFourLoad();
+// pageThreeLoad(userInput);
+pageFourLoad();
 // displayMockData();
 // processData();

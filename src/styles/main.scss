@@ -4,7 +4,7 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-$yase-purple: #8c8bd8;
+$yase-purple: #ac95db;
 $border-colour: #ffffff;
 $shadow-colour: #000000;
 $input-colour: #ffffff;
@@ -75,7 +75,7 @@ h1 {
 .widget-container {
   margin: 2rem;
   outline: 5px solid $border-colour;
-  min-width: 200px;
+  min-width: 320px;
   border-radius: 10px;
   box-shadow: $shadow-colour 0px 7px 29px 0px;
   background-color: $yase-purple;
