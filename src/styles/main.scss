@@ -1,8 +1,5 @@
-* {
-  // outline: solid black;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
+$primary-font: "Playfair Display", serif;
+$secondary-font: "Questrial", sans-serif;
 
 $yase-purple: #ac95db;
 $border-colour: #ffffff;
@@ -19,16 +16,18 @@ h2 {
 
 h2 {
   font-size: larger;
+  font-family: $primary-font;
 }
 
 h1 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-family: $primary-font;
+  font-weight: 400;
 }
-
-.intro {
-  > p {
-    color: $input-colour;
-  }
+p {
+  color: $input-colour;
+  font-size: 1rem;
+  font-family: $secondary-font;
 }
 
 .form-header {
@@ -110,6 +109,7 @@ h1 {
 
 input,
 select {
+  font-family: $secondary-font;
   outline: 1px solid darken($yase-purple, 5%);
   border-radius: 5px;
   box-shadow: rgba(255, 255, 255, 0.257) 0px 30px 60px -12px inset,
@@ -305,6 +305,8 @@ input::placeholder {
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  font-family: $primary-font;
+  font-weight: 500;
 }
 
 .button-next:focus {

@@ -5,25 +5,25 @@ import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
 import { handleServer } from "./endpoint";
 
-export default async function pageFourLoad() {
+export default async function pageFourLoad(userInput) {
   await clearWidget();
 
-  const userInput = {
-    bathrooms: "2",
-    bedrooms: "3",
-    buildDate: "1914_2000",
-    emailInput: "ahmedkhan895.ak@gmail.com",
-    finishQuality: "average",
-    firstName: "Ahmed",
-    oss: "garden",
-    parking: "1",
-    phoneInput: "07853114511",
-    postcode: "E151sl",
-    propertyType: "semi-detached_house",
-    secondNameInput: "KHAN",
-    sellOrLet: "SELL",
-    squareFootage: "1200",
-  };
+  // const userInput = {
+  //   bathrooms: "2",
+  //   bedrooms: "3",
+  //   buildDate: "1914_2000",
+  //   emailInput: "ahmedkhan895.ak@gmail.com",
+  //   finishQuality: "average",
+  //   firstName: "Ahmed",
+  //   oss: "garden",
+  //   parking: "1",
+  //   phoneInput: "07853114511",
+  //   postcode: "E151sl",
+  //   propertyType: "semi-detached_house",
+  //   secondNameInput: "KHAN",
+  //   sellOrLet: "SELL",
+  //   squareFootage: "1200",
+  // };
 
   loadingPage();
 
@@ -103,64 +103,6 @@ export default async function pageFourLoad() {
         rentSuccess
       );
     });
-}
-
-export function displayMockData() {
-  const mockSaleData = {
-    minimum: "$500,000",
-    average: "$650,000",
-    maximum: "$800,000",
-  };
-
-  const mockRentData = {
-    rent: "$2,000",
-  };
-
-  clearWidget();
-
-  const resultDisplayContainer = initialPageLoad();
-
-  // Display mock sale data
-  console.log("Sale data was successful");
-  console.log(mockSaleData);
-
-  loadSingleLine(
-    resultDisplayContainer,
-    mockSaleData.minimum,
-    "Minimum estimated sale value",
-    "minimum",
-    "dark"
-  );
-  loadSingleLine(
-    resultDisplayContainer,
-    mockSaleData.average,
-    "Estimated sale value",
-    "average",
-    "light"
-  );
-  loadSingleLine(
-    resultDisplayContainer,
-    mockSaleData.maximum,
-    "Maximum estimated sale value",
-    "maximum",
-    "dark"
-  );
-
-  // Display mock rent data
-  console.log("Rent data was successful");
-  console.log(mockRentData);
-
-  loadSingleLine(
-    resultDisplayContainer,
-    mockRentData.rent,
-    "Estimated Rental",
-    "rent",
-    "light"
-  );
-
-  // Execute loadMessage() and buttonClick() after displaying mock data
-  loadMessage();
-  buttonClick();
 }
 
 function initialPageLoad() {
