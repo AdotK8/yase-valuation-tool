@@ -5,9 +5,6 @@ export function handleServer(
   saleSuccess,
   rentSuccess
 ) {
-  console.log(saleSuccess);
-  console.log(rentSuccess);
-
   if (saleSuccess && rentSuccess) {
     triggerBackendEmailFull(userInput, processedSaleData, processedRentData);
   } else if (saleSuccess && !rentSuccess) {
