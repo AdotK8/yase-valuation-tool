@@ -5,25 +5,25 @@ import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
 import { handleServer } from "./endpoint";
 
-export default async function pageFourLoad(userInput) {
+export default async function pageFourLoad() {
   await clearWidget();
 
-  // const userInput = {
-  //   bathrooms: "2",
-  //   bedrooms: "3",
-  //   buildDate: "1914_2000",
-  //   emailInput: "ahmedkhan895.ak@gmail.com",
-  //   finishQuality: "average",
-  //   firstName: "Ahmed",
-  //   oss: "garden",
-  //   parking: "1",
-  //   phoneInput: "07853114511",
-  //   postcode: "E151sl",
-  //   propertyType: "semi-detached_house",
-  //   secondNameInput: "KHAN",
-  //   sellOrLet: "SELL",
-  //   squareFootage: "1200",
-  // };
+  const userInput = {
+    bathrooms: "2",
+    bedrooms: "3",
+    buildDate: "1914_2000",
+    emailInput: "ahmedkhan895.ak@gmail.com",
+    finishQuality: "average",
+    firstName: "Ahmed",
+    oss: "garden",
+    parking: "1",
+    phoneInput: "07853114511",
+    postcode: "E151sl",
+    propertyType: "semi-detached_house",
+    secondNameInput: "KHAN",
+    sellOrLet: "SELL",
+    squareFootage: "1200",
+  };
 
   loadingPage();
 

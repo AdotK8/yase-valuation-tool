@@ -1,7 +1,9 @@
-require("dotenv").config(); // Required if using a `.env` file
+const dotenv = require("dotenv");
+dotenv.config();
 
 export function fetchData(userInput) {
   const apiKey = process.env.API_KEY;
+  console.log("API_KEY:", process.env.API_KEY);
   const urls = [
     `https://api.propertydata.co.uk/valuation-sale?key=${apiKey}&postcode=${userInput.postcode}&internal_area=${userInput.squareFootage}&property_type=${userInput.propertyType}&construction_date=${userInput.buildDate}&bedrooms=${userInput.bedrooms}&bathrooms=${userInput.bathrooms}&finish_quality=${userInput.finishQuality}&outdoor_space=${userInput.oss}&off_street_parking=${userInput.parking}`,
     `https://api.propertydata.co.uk/valuation-rent?key=${apiKey}&postcode=${userInput.postcode}&internal_area=${userInput.squareFootage}&property_type=${userInput.propertyType}&construction_date=${userInput.buildDate}&bedrooms=${userInput.bedrooms}&bathrooms=${userInput.bathrooms}&finish_quality=${userInput.finishQuality}&outdoor_space=${userInput.oss}&off_street_parking=${userInput.parking}`,

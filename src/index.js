@@ -23,9 +23,9 @@ londonImgElement.src = londonImg;
 const userInput = {};
 
 //loading first page
-pageOneLoad(userInput);
+// pageOneLoad(userInput);
 // pageTwoLoad(userInput);
 // pageThreeLoad(userInput);
-// pageFourLoad();
+pageFourLoad();
 // displayMockData();
 // processData();
