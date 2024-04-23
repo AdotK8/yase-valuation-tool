@@ -22,7 +22,7 @@ async function triggerBackendEmailFull(
 ) {
   try {
     const response = await fetch(
-      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/",
+      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/send-email-internal",
       {
         method: "POST",
         headers: {
