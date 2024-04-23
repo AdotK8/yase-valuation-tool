@@ -1,5 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "./.env" });
 
 module.exports = {
   mode: "development",
@@ -42,9 +45,12 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
+
     new webpack.ProvidePlugin({
       process: "process/browser",
-      Buffer: ["buffer", "Buffer"],
     }),
   ],
 };
