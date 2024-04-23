@@ -21,19 +21,22 @@ async function triggerBackendEmailFull(
   processedRentData
 ) {
   try {
-    const response = await fetch("http://localhost:3000/send-email-full", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await fetch(
+      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      // You can pass any necessary data to the backend in the request body
-      body: JSON.stringify({
-        processedSaleData,
-        processedRentData,
-        userInput,
-      }),
-    });
+        // You can pass any necessary data to the backend in the request body
+        body: JSON.stringify({
+          processedSaleData,
+          processedRentData,
+          userInput,
+        }),
+      }
+    );
 
     // Check if the request was successful
     if (response.ok) {
