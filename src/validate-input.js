@@ -15,11 +15,11 @@ export default function validateInput(
     return false;
   } else if (
     input.type === "number" &&
-    (isNaN(input.value) || parseInt(input.value) < 300)
+    (isNaN(input.value) ||
+      parseInt(input.value) < 300 ||
+      parseInt(input.value) > 5000)
   ) {
-    input.setCustomValidity(
-      "Please ensure you are using a valid number greater than or equal to 300"
-    );
+    input.setCustomValidity("Are you sure this is correct?");
     input.reportValidity();
     return false;
   } else if (input.type === "tel" && !isValidPhoneNumber(input.value)) {

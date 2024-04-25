@@ -6,7 +6,7 @@ $border-colour: #ffffff;
 $shadow-colour: #000000;
 $input-colour: #ffffff;
 $faded-colour: #ffffffbd;
-$yase-yellow: #fef3dd;
+$yase-brown: #250c01;
 
 h1,
 h2 {
@@ -63,17 +63,17 @@ p {
 }
 
 #london-banner {
-  position: relative;
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  outline: 1px solid $yase-brown;
 }
 
 .widget-container {
-  margin: 2rem;
-  outline: 5px solid $border-colour;
+  margin: 1rem;
+  outline: 1px solid $yase-brown;
   min-width: 320px;
   border-radius: 10px;
   box-shadow: $shadow-colour 0px 7px 29px 0px;
@@ -82,7 +82,7 @@ p {
 }
 
 .container {
-  outline: 5px solid white;
+  // outline: 1px solid $yase-brown;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
@@ -127,6 +127,13 @@ select {
   &:focus {
     outline: 1px solid $input-colour;
   }
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.257) 0px 30px 60px -12px inset,
+    rgb(255, 254, 254, 0.257) 0px 18px 36px -18px inset;
+  -webkit-text-fill-color: $input-colour;
+  transition: background-color 5000s ease-in-out;
 }
 
 #postcode-input,
@@ -293,8 +300,8 @@ input::placeholder {
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   position: relative;
   text-align: left;
   text-decoration: none;

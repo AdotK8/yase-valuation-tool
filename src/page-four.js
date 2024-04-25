@@ -3,7 +3,7 @@ import { processSaleData, processRentData, fetchData } from "./data-process";
 import checkImgIcon from "./assets/check-circle.svg";
 import checkImgIconFade from "./assets/check-circle-faded.svg";
 import errorIconImg from "./assets/alert-circle.svg";
-import { handleServer } from "./endpoint";
+import { handleServer, triggerBackendEmailBookVal } from "./endpoint";
 
 export default async function pageFourLoad(userInput) {
   await clearWidget();
@@ -21,7 +21,6 @@ export default async function pageFourLoad(userInput) {
   //   postcode: "SW1V3JL",
   //   propertyType: "flat",
   //   secondNameInput: "KHAN",
-  //   sellOrLet: "SELL",
   //   squareFootage: "700",
   // };
 
@@ -94,7 +93,7 @@ export default async function pageFourLoad(userInput) {
     })
     .finally(() => {
       loadMessage();
-      buttonClick();
+      buttonClick(userInput);
       handleServer(
         processedSaleData,
         processedRentData,
@@ -177,12 +176,12 @@ function loadMessage() {
   container.appendChild(messageContainer);
 }
 
-function buttonClick() {
+function buttonClick(userInput) {
   const button = document.querySelector("#page-four-button");
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("test");
+    triggerBackendEmailBookVal(userInput);
     loadFinalMessage();
   });
 }

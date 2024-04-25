@@ -4,14 +4,13 @@ import validateInput from "./validate-input";
 
 export default async function pageTwoLoad(userInput) {
   await clearWidget();
-  loadTop();
   loadBedAndBath();
   loadSquareInput();
   loadDateAndType();
   loadFinish();
   loadParkingOss();
   loadBottomSection();
-  loadButtonFunctionality();
+
   checkValidSelection(userInput);
 }
 
@@ -92,48 +91,8 @@ function submitSelection(
   userInput.finishQuality = finishInput.value;
   userInput.oss = ossInput.value;
   userInput.parking = parkingInput.value;
-  userInput.sellOrLet = document.querySelector(".selected").textContent;
 
   pageThreeLoad(userInput);
-}
-
-function loadButtonFunctionality() {
-  const buttonSell = document.getElementById("button-sell");
-  const buttonLet = document.getElementById("button-let");
-
-  buttonSell.addEventListener("click", (e) => {
-    e.preventDefault();
-    buttonSell.classList.add("selected");
-    buttonLet.classList.remove("selected");
-  });
-
-  buttonLet.addEventListener("click", (e) => {
-    e.preventDefault();
-    buttonLet.classList.add("selected");
-    buttonSell.classList.remove("selected");
-  });
-}
-
-function loadTop() {
-  const container = document.querySelector(".container");
-
-  const questionText = document.createElement("p");
-  const sellButton = document.createElement("button");
-  const letButton = document.createElement("button");
-  questionText.classList.add("form-header");
-  sellButton.setAttribute("id", "button-sell");
-  letButton.setAttribute("id", "button-let");
-  const buttonContainer = document.createElement("div");
-  questionText.innerHTML = "What are you looking to do with your property?";
-  sellButton.innerHTML = "SELL";
-  sellButton.classList.add("selected");
-  letButton.innerHTML = "LET";
-  buttonContainer.classList.add("button-container");
-
-  container.appendChild(questionText);
-  buttonContainer.appendChild(sellButton);
-  buttonContainer.appendChild(letButton);
-  container.appendChild(buttonContainer);
 }
 
 function loadBedAndBath() {
@@ -155,12 +114,12 @@ function loadBedAndBath() {
 
   bedDropdown.name = "bedrooms";
   bathDropdown.name = "bathrooms";
-  bedDropdown.innerHTML = "Number of bedrooms";
-  bathDropdown.innerHTML = "Number of bathrooms";
+  // bedDropdown.innerHTML = "Number of bedrooms";
+  // bathDropdown.innerHTML = "Number of bathrooms";
   defaultBedrooms.value = "";
-  defaultBedrooms.text = "Number of bedrooms";
+  defaultBedrooms.text = "Bedrooms";
   defaultBathrooms.value = "";
-  defaultBathrooms.text = "Number of bathrooms";
+  defaultBathrooms.text = "Bathrooms";
 
   defaultBathrooms.setAttribute("disabled", true);
   defaultBathrooms.setAttribute("selected", true);
@@ -195,9 +154,10 @@ function loadSquareInput() {
 
   const squareInput = document.createElement("input");
   squareInput.type = "number";
-  squareInput.placeholder = "Approximate internal square footage of property";
+  squareInput.placeholder = "Approximate square footage";
   squareInput.setAttribute("id", "square-input");
   squareInput.setAttribute("min", "300");
+  squareInput.setAttribute("max", "5000");
 
   container.appendChild(squareInput);
 }
@@ -213,12 +173,12 @@ function loadDateAndType() {
 
   dateDropdown.name = "date";
   typeDropdown.name = "type";
-  dateDropdown.innerHTML = "Construction date";
-  typeDropdown.innerHTML = "Type of property";
+  // dateDropdown.innerHTML = "Construction date";
+  // typeDropdown.innerHTML = "Type of property";
   defaultDate.value = "";
-  defaultDate.text = "Construction date";
+  defaultDate.text = "Build date";
   defaultType.value = "";
-  defaultType.text = "Type of property";
+  defaultType.text = "Type";
 
   dateDropdown.setAttribute("id", "date-input");
   typeDropdown.setAttribute("id", "type-input");

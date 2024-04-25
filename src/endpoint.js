@@ -113,3 +113,33 @@ async function triggerBackendEmailInternal(userInput) {
     console.error("Network error:", error);
   }
 }
+
+export async function triggerBackendEmailBookVal(userInput) {
+  try {
+    const response = await fetch(
+      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/book-val",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        // You can pass any necessary data to the backend in the request body
+        body: JSON.stringify({
+          userInput,
+        }),
+      }
+    );
+
+    // Check if the request was successful
+    if (response.ok) {
+      console.log("Email sent successfully");
+    } else {
+      // Handle errors
+      console.error("Error sending email:", response.statusText);
+    }
+  } catch (error) {
+    // Handle network errors
+    console.error("Network error:", error);
+  }
+}

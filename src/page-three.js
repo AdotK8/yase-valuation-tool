@@ -74,8 +74,6 @@ function submitSelection(
   userInput.phoneInput = phoneInput.value;
 
   pageFourLoad(userInput);
-  console.log(userInput);
-  console.log(typeof firstNameInput.value);
 }
 
 function sentenceCaseName(name) {
