@@ -9,8 +9,8 @@ export default async function pageFourLoad(userInput) {
   await clearWidget();
 
   // const userInput = {
-  //   bathrooms: "1",
-  //   bedrooms: "1",
+  //   bathrooms: "3",
+  //   bedrooms: "5",
   //   buildDate: "2000_onwards",
   //   emailInput: "ahmedkhan895.ak@gmail.com",
   //   finishQuality: "high",
@@ -19,9 +19,9 @@ export default async function pageFourLoad(userInput) {
   //   parking: "1",
   //   phoneInput: "07853114511",
   //   postcode: "SW1V3JL",
-  //   propertyType: "flat",
+  //   propertyType: "terraced_house",
   //   secondNameInput: "KHAN",
-  //   squareFootage: "700",
+  //   squareFootage: "5000",
   // };
 
   loadingPage();
@@ -42,7 +42,6 @@ export default async function pageFourLoad(userInput) {
       if (saleSuccess || rentSuccess) {
         // Run code if either sale or rent data is successful
         const resultDisplayContainer = initialPageLoad();
-        // clear loading screen
         //display sale results
         if (saleSuccess) {
           console.log("Sale data was successful");
@@ -79,6 +78,17 @@ export default async function pageFourLoad(userInput) {
             "Estimated Rental",
             "rent",
             "light"
+          );
+        }
+        //display rent failure
+        if (!rentSuccess) {
+          console.log("Rent data was unsuccessful");
+          loadSingleLine(
+            resultDisplayContainer,
+            "Failed to retrieve",
+            "Estimated Rental",
+            "rent",
+            "error"
           );
         }
       } else {
@@ -137,9 +147,10 @@ function loadSingleLine(resultDisplayContainer, value, title, id, icon) {
   valueListItem.setAttribute("id", id);
 
   //adding correct image
-
   if (icon === "dark") {
     checkImg.src = checkImgIconFade;
+  } else if (icon === "error") {
+    checkImg.src = errorIconImg;
   } else {
     checkImg.src = checkImgIcon;
   }

@@ -108,14 +108,12 @@ function loadBedAndBath() {
   bedDropdown.setAttribute("id", "bedroom-input");
   bathDropdown.setAttribute("id", "bathroom-input");
 
-  propertyDetailsText.innerHTML = "Your property details";
+  propertyDetailsText.innerHTML = "Your property details:";
   propertyDetailsText.classList.add("form-header");
   container.appendChild(propertyDetailsText);
 
   bedDropdown.name = "bedrooms";
   bathDropdown.name = "bathrooms";
-  // bedDropdown.innerHTML = "Number of bedrooms";
-  // bathDropdown.innerHTML = "Number of bathrooms";
   defaultBedrooms.value = "";
   defaultBedrooms.text = "Bedrooms";
   defaultBathrooms.value = "";
@@ -173,8 +171,6 @@ function loadDateAndType() {
 
   dateDropdown.name = "date";
   typeDropdown.name = "type";
-  // dateDropdown.innerHTML = "Construction date";
-  // typeDropdown.innerHTML = "Type of property";
   defaultDate.value = "";
   defaultDate.text = "Build date";
   defaultType.value = "";
@@ -236,7 +232,6 @@ function loadFinish() {
   const defaultFinish = document.createElement("option");
 
   finishDropdown.name = "finish";
-  finishDropdown.innerHTML = "Finish quality";
   defaultFinish.value = "";
   defaultFinish.text = "Finish quality";
 
@@ -284,8 +279,6 @@ function loadParkingOss() {
 
   ossDropdown.name = "oss";
   parkingDropdown.name = "parking";
-  ossDropdown.innerHTML = "Outside space";
-  parkingDropdown.innerHTML = "Parking";
   defaultOss.value = "";
   defaultOss.text = "Outside space";
   defaultParking.value = "";

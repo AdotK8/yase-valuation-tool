@@ -76,17 +76,17 @@ function submitSelection(
   pageFourLoad(userInput);
 }
 
+//function to convert name to sentance case
 function sentenceCaseName(name) {
   let words = name.toLowerCase().split(" ");
 
-  // Capitalize the first letter of each word
   for (let i = 0; i < words.length; i++) {
     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
   }
 
-  // Join the words back into a single string and return
   return words.join(" ");
 }
+
 function loadNameFields() {
   const container = document.querySelector(".container");
   const nameFieldsContainer = document.createElement("div");
@@ -105,7 +105,7 @@ function loadNameFields() {
   firstNameField.setAttribute("placeholder", "First name");
   secondNameField.setAttribute("placeholder", "Surname");
   header.classList.add("form-header");
-  header.innerHTML = "Your details";
+  header.innerHTML = "Your details:";
   nameFieldsContainer.appendChild(firstNameField);
   nameFieldsContainer.appendChild(secondNameField);
 

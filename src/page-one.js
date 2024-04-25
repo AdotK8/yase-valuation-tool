@@ -17,9 +17,9 @@ export default function pageOneLoad(userInput) {
 
       if (!postcodeRegex.test(postcodeInput)) {
         inputField.setCustomValidity("Please enter a valid UK postcode");
-        inputField.reportValidity(); // Show the validation message
+        inputField.reportValidity(); // Show validation message
       } else {
-        // Store input in object here
+        // Store input in object if valid
         userInput.postcode = postcodeInput;
         pageTwoLoad(userInput);
       }

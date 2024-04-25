@@ -14,7 +14,8 @@ export function handleServer(
   }
 }
 
-//function to send full email to server
+//functions to send full email to server
+
 async function triggerBackendEmailFull(
   userInput,
   processedSaleData,
@@ -50,8 +51,6 @@ async function triggerBackendEmailFull(
     console.error("Network error:", error);
   }
 }
-
-//function to send sale email to server
 async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
   try {
     const response = await fetch(
@@ -83,7 +82,6 @@ async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
   }
 }
 
-//function to send internal email to server
 async function triggerBackendEmailInternal(userInput) {
   try {
     const response = await fetch(
@@ -113,7 +111,6 @@ async function triggerBackendEmailInternal(userInput) {
     console.error("Network error:", error);
   }
 }
-
 export async function triggerBackendEmailBookVal(userInput) {
   try {
     const response = await fetch(
