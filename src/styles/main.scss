@@ -1,10 +1,10 @@
 $primary-font: "Playfair Display", serif;
 $secondary-font: "Questrial", sans-serif;
 
-$yase-purple: #ac95db;
+$yase-purple: #a4a4eb;
 $input-colour: #ffffff;
 $faded-colour: #ffffffbd;
-$yase-brown: #250c01;
+$yase-brown: #432600;
 
 html {
   background-color: $yase-purple;
@@ -250,7 +250,7 @@ select {
     width: 75px;
     height: 75px;
     border: 15px solid white;
-    border-top-color: $yase-purple;
+    border-top-color: $yase-brown;
     border-radius: 50%;
     animation: loading 1s ease infinite;
   }
