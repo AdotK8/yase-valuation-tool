@@ -2,36 +2,35 @@ $primary-font: "Playfair Display", serif;
 $secondary-font: "Questrial", sans-serif;
 
 $yase-purple: #ac95db;
-$border-colour: #ffffff;
-$shadow-colour: #000000;
 $input-colour: #ffffff;
 $faded-colour: #ffffffbd;
 $yase-brown: #250c01;
 
-h1,
-h2 {
-  margin-bottom: -10px;
-  color: white;
+html {
+  background-color: $yase-purple;
 }
 
-h2 {
-  font-size: larger;
-  font-family: $primary-font;
+h1,
+h2,
+p,
+.form-header {
+  color: $yase-brown;
 }
 
 h1 {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-family: $primary-font;
   font-weight: 400;
 }
-p {
-  color: $input-colour;
-  font-size: 1rem;
-  font-family: $secondary-font;
+
+h2 {
+  font-size: 1.5rem;
+  font-family: $primary-font;
 }
 
-.form-header {
-  color: $input-colour;
+p {
+  font-size: 1.2rem;
+  font-family: $secondary-font;
 }
 
 .form-header + div {
@@ -47,9 +46,10 @@ p {
   height: auto;
 }
 
-#valuation-icon {
-  max-width: 100px;
-  max-height: 100px;
+.check,
+#error-icon {
+  max-width: 40px;
+  max-height: 40px;
 }
 
 .check {
@@ -57,47 +57,21 @@ p {
   max-height: 25px;
 }
 
-#error-icon {
-  max-width: 40px;
-  max-height: 40px;
-}
-
-#london-banner {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  outline: 1px solid $yase-brown;
-}
-
 .widget-container {
   margin: 1rem;
   outline: 1px solid $yase-brown;
   min-width: 320px;
-  border-radius: 10px;
-  box-shadow: $shadow-colour 0px 7px 29px 0px;
-  background-color: $yase-purple;
-  // width: 40%;
+  padding: 1rem 2rem 2rem;
 }
 
 .container {
-  // outline: 1px solid $yase-brown;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(
-    to bottom,
-    $yase-purple,
-    darken($yase-purple, 10%)
-  );
-  gap: 1rem;
-  padding: 1rem 2rem 2rem 2rem;
+  gap: 1.5rem;
   z-index: -1;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
-  //adjust time in clearWidget function
+
   > .top,
   .postcode-container {
     display: flex;
@@ -110,30 +84,39 @@ p {
 input,
 select {
   font-family: $secondary-font;
-  outline: 1px solid darken($yase-purple, 5%);
-  border-radius: 5px;
-  box-shadow: rgba(255, 255, 255, 0.257) 0px 30px 60px -12px inset,
-    rgb(255, 254, 254, 0.257) 0px 18px 36px -18px inset;
-  background-color: $yase-purple;
+  outline: 1px solid $yase-brown;
+  border-radius: 10px;
+  background-color: $input-colour;
   display: flex;
   flex: 1;
   margin: 0;
   padding: 1rem 1rem 1rem 1rem;
   border: none;
   font-size: 1rem;
-  color: $input-colour;
+  color: $yase-brown;
   box-sizing: border-box;
   text-overflow: clip;
   &:focus {
-    outline: 1px solid $input-colour;
+    outline: 1px solid $yase-brown;
   }
 }
 
+select,
+input::placeholder {
+  color: $yase-brown;
+}
+
 input:-webkit-autofill {
-  -webkit-box-shadow: rgba(255, 255, 255, 0.257) 0px 30px 60px -12px inset,
-    rgb(255, 254, 254, 0.257) 0px 18px 36px -18px inset;
-  -webkit-text-fill-color: $input-colour;
+  -webkit-text-fill-color: $yase-brown;
   transition: background-color 5000s ease-in-out;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+  background-position: 100%;
+  background-repeat: no-repeat;
 }
 
 #postcode-input,
@@ -144,33 +127,27 @@ input:-webkit-autofill {
   max-width: 100%;
 }
 
-select,
-input::placeholder {
-  color: $input-colour;
-}
-
 .button-container {
   display: flex;
   gap: 1rem;
 
   > button {
     background-color: $yase-purple;
-    outline: 1px solid $border-colour;
+    outline: 1px solid $input-colour;
     display: flex;
     flex: 1;
     justify-content: center;
     padding: 1rem;
     font-weight: 700;
-    color: white;
+    color: $input-colour;
     border: none;
     cursor: pointer;
     border-radius: 20px;
-  }
-  > button.selected {
-    background-color: lighten($yase-purple, 10%);
-  }
-  > button:not(.selected):hover {
-    background-color: lighten($yase-purple, 10%);
+
+    &.selected,
+    &:hover:not(.selected) {
+      background-color: lighten($yase-purple, 10%);
+    }
   }
 }
 
@@ -178,6 +155,7 @@ input::placeholder {
   display: flex;
   gap: 1rem;
   flex-direction: row;
+
   > select {
     width: 100%;
     max-width: 100%;
@@ -197,9 +175,10 @@ input::placeholder {
 
 .disclaimer {
   margin-top: -5px;
-  color: $input-colour;
+  color: $yase-brown;
+
   > a {
-    color: $input-colour;
+    color: $yase-brown;
   }
 }
 
@@ -208,42 +187,47 @@ input::placeholder {
   color: $input-colour;
   display: flex;
   align-items: center;
+
   > .value-price {
     margin-left: auto;
   }
-}
 
-#average.value-list-item {
-  font-size: larger;
-}
-
-#minimum,
-#maximum {
-  color: $faded-colour;
+  &#average {
+    font-size: larger;
+  }
 }
 
 .results-display-container {
   display: flex;
   flex-direction: column;
-  border-bottom: solid 0.5px rgba(255, 255, 255, 0.594);
+  padding-bottom: 5px;
+  border-bottom: solid 0.5px $yase-brown;
 }
 
 .message-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  margin-top: -10px;
+
+  > h2 {
+    font-weight: 300;
+  }
+
   > p {
-    color: #ffffffb8;
+    color: $yase-brown;
+    font-family: $secondary-font;
+    font-size: 1rem;
   }
 }
 
 .error-container {
   display: flex;
-  flex-direction: rwo;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-bottom: solid 0.5px rgba(255, 255, 255, 0.594);
+
   > p {
     color: $input-colour;
   }
@@ -255,21 +239,21 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.loader--hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 
-.loader::after {
-  content: "";
-  width: 75px;
-  height: 75px;
-  border: 15px solid white;
-  border-top-color: $yase-purple;
-  border-radius: 50%;
-  animation: loading 1s ease infinite;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid white;
+    border-top-color: $yase-purple;
+    border-radius: 50%;
+    animation: loading 1s ease infinite;
+  }
 }
 
 @keyframes loading {
@@ -281,53 +265,27 @@ input::placeholder {
   }
 }
 
-//next page button css
-
 .button-next {
   align-items: center;
   appearance: none;
-  background-color: $border-colour;
-  border-radius: 10px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  background-color: transparent;
+  outline: 1px solid $yase-brown;
+  border-radius: 20px;
+  border: none;
   box-sizing: border-box;
-  color: #36395a;
+  color: $yase-brown;
   cursor: pointer;
   display: inline-flex;
   height: 48px;
   justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow 0.15s, transform 0.15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-  font-size: 18px;
-  font-family: $primary-font;
-  font-weight: 500;
-}
+  font-size: 1rem;
+  font-weight: 100;
+  transition: background-color 0.2s ease-in, outline 0.2s ease-in;
 
-.button-next:focus {
-  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-}
-
-.button-next:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-
-.button-next:active {
-  box-shadow: #d6d6e7 0 3px 7px inset;
-  transform: translateY(2px);
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: white;
+    outline: none;
+  }
 }

@@ -331,7 +331,7 @@ function loadBottomSection() {
   getValButton.setAttribute("id", "page-two-button");
   getValButton.classList.add("button-next");
   getValButton.setAttribute("type", "submit");
-  getValButton.innerHTML = "GET INSTANT VALUATION";
+  getValButton.innerHTML = "Submit";
 
   container.appendChild(getValButton);
 }

@@ -9,8 +9,8 @@ export default async function pageFourLoad(userInput) {
   await clearWidget();
 
   // const userInput = {
-  //   bathrooms: "3",
-  //   bedrooms: "5",
+  //   bathrooms: "1",
+  //   bedrooms: "1",
   //   buildDate: "2000_onwards",
   //   emailInput: "ahmedkhan895.ak@gmail.com",
   //   finishQuality: "high",
@@ -19,9 +19,9 @@ export default async function pageFourLoad(userInput) {
   //   parking: "1",
   //   phoneInput: "07853114511",
   //   postcode: "SW1V3JL",
-  //   propertyType: "terraced_house",
+  //   propertyType: "flat",
   //   secondNameInput: "KHAN",
-  //   squareFootage: "5000",
+  //   squareFootage: "800",
   // };
 
   loadingPage();
@@ -173,7 +173,7 @@ function loadMessage() {
 
   getValButton.setAttribute("id", "page-four-button");
   getValButton.setAttribute("type", "submit");
-  getValButton.innerHTML = "BOOK ACCURATE VALUATION";
+  getValButton.innerHTML = "Book accurate valuation";
   getValButton.classList.add("button-next");
   messageContainer.classList.add("message-container");
 
