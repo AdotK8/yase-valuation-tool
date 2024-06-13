@@ -158,7 +158,7 @@ function loadBottomSection() {
 
   getValButton.setAttribute("id", "page-three-button");
   getValButton.setAttribute("type", "submit");
-  getValButton.innerHTML = "GET INSTANT VALUATION";
+  getValButton.innerHTML = "Submit";
   getValButton.classList.add("button-next");
   disclaimer.classList.add("disclaimer");
 

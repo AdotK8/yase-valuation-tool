@@ -117,6 +117,7 @@ export default async function pageFourLoad(userInput) {
 function initialPageLoad() {
   // Execute loadMessage() and buttonClick() after data processing and display
   const container = document.querySelector(".container");
+  removeTitle();
   loadHeader();
 
   const resultDisplayContainer = document.createElement("div");
@@ -125,6 +126,11 @@ function initialPageLoad() {
   container.appendChild(resultDisplayContainer);
 
   return resultDisplayContainer;
+}
+
+function removeTitle() {
+  const title = document.querySelector(".title");
+  title.remove();
 }
 
 function loadHeader() {
@@ -179,7 +185,7 @@ function loadMessage() {
 
   header.innerHTML = "Ready to book an accurate, in-person valuation?";
   textContent.innerHTML =
-    "Looking for a precise property valuation? Look no further than Yase. We're experts in London real estate and we're here to help. <br> <br>Our local property specialists are dedicated to assisting you every step of the way – whether you're looking to understand your property's value, sell, rent, or simply seeking advice, we've got you covered.";
+    "Looking to sell or let your property? Look no further than Yase. As a boutique firm we pride ourselves on providing a highly personalized service and advice, ensuring that we look after and care for each of our clients in a way that larger companies simply can't match.<br><br>Our local property specialists are dedicated to assisting you every step of the way, ensuring you receive the attention and care you deserve. Whether you're looking to understand your property's value, sell, rent, or simply seek advice, we've got you covered with competitive letting and sales fees. <br><br>Experience the difference with Yase, where your property truly matters to us.";
   messageContainer.appendChild(header);
   messageContainer.appendChild(textContent);
   messageContainer.appendChild(getValButton);
