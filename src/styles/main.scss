@@ -62,6 +62,7 @@ p {
   outline: 1px solid $yase-brown;
   min-width: 320px;
   padding: 1rem 2rem 2rem;
+  box-sizing: border-box; // Added to handle padding and border sizing properly
 }
 
 .container {
@@ -78,6 +79,17 @@ p {
     position: relative;
     gap: 1rem;
     align-items: center;
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    padding: 1rem;
+    gap: 1rem;
+
+    > .top,
+    .postcode-container {
+      flex-direction: column;
+    }
   }
 }
 
@@ -149,6 +161,12 @@ select {
       background-color: lighten($yase-purple, 10%);
     }
   }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 .row-input-container {
@@ -159,6 +177,11 @@ select {
   > select {
     width: 100%;
     max-width: 100%;
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 }
 
