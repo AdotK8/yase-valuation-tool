@@ -23,7 +23,7 @@ async function triggerBackendEmailFull(
 ) {
   try {
     const response = await fetch(
-      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/send-email-full",
+      "http://localhost:3000/api/valuation/send-email-full",
       {
         method: "POST",
         headers: {
@@ -51,10 +51,11 @@ async function triggerBackendEmailFull(
     console.error("Network error:", error);
   }
 }
+
 async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
   try {
     const response = await fetch(
-      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/send-email-sale",
+      "http://localhost:3000/api/valuation/send-email-sale",
       {
         method: "POST",
         headers: {
@@ -85,7 +86,7 @@ async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
 async function triggerBackendEmailInternal(userInput) {
   try {
     const response = await fetch(
-      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/send-email-internal",
+      "http://localhost:3000/api/valuation/send-email-internal",
       {
         method: "POST",
         headers: {
@@ -114,7 +115,7 @@ async function triggerBackendEmailInternal(userInput) {
 export async function triggerBackendEmailBookVal(userInput) {
   try {
     const response = await fetch(
-      "https://yase-valuation-backend-4b9af8757df8.herokuapp.com/book-val",
+      "http://localhost:3000/api/valuation/book-val",
       {
         method: "POST",
         headers: {
