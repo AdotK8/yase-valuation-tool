@@ -110,8 +110,12 @@ select {
   box-sizing: border-box;
   text-overflow: clip;
   &:focus {
-    outline: 1px solid $yase-brown;
+    outline: 1px solid white;
   }
+}
+
+input:focus {
+  outline: white;
 }
 
 select,
