@@ -14,6 +14,9 @@ export function handleServer(
   }
 }
 
+const API_BASE_URL =
+  "https://yase-crud-backend-c0bc93f85f45.herokuapp.com/api/valuation";
+
 //functions to send full email to server
 
 async function triggerBackendEmailFull(
@@ -22,22 +25,19 @@ async function triggerBackendEmailFull(
   processedRentData
 ) {
   try {
-    const response = await fetch(
-      "http://localhost:3000/api/valuation/send-email-full",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const response = await fetch(`${API_BASE_URL}/send-email-full`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        // You can pass any necessary data to the backend in the request body
-        body: JSON.stringify({
-          processedSaleData,
-          processedRentData,
-          userInput,
-        }),
-      }
-    );
+      // You can pass any necessary data to the backend in the request body
+      body: JSON.stringify({
+        processedSaleData,
+        processedRentData,
+        userInput,
+      }),
+    });
 
     // Check if the request was successful
     if (response.ok) {
@@ -54,21 +54,18 @@ async function triggerBackendEmailFull(
 
 async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
   try {
-    const response = await fetch(
-      "http://localhost:3000/api/valuation/send-email-sale",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const response = await fetch(`${API_BASE_URL}/send-email-sale`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        // You can pass any necessary data to the backend in the request body
-        body: JSON.stringify({
-          processedSaleData,
-          userInput,
-        }),
-      }
-    );
+      // You can pass any necessary data to the backend in the request body
+      body: JSON.stringify({
+        processedSaleData,
+        userInput,
+      }),
+    });
 
     // Check if the request was successful
     if (response.ok) {
@@ -114,20 +111,17 @@ async function triggerBackendEmailInternal(userInput) {
 }
 export async function triggerBackendEmailBookVal(userInput) {
   try {
-    const response = await fetch(
-      "http://localhost:3000/api/valuation/book-val",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const response = await fetch(`${API_BASE_URL}/book-val`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        // You can pass any necessary data to the backend in the request body
-        body: JSON.stringify({
-          userInput,
-        }),
-      }
-    );
+      // You can pass any necessary data to the backend in the request body
+      body: JSON.stringify({
+        userInput,
+      }),
+    });
 
     // Check if the request was successful
     if (response.ok) {
