@@ -14,10 +14,10 @@ export function handleServer(
   }
 }
 
-// const API_BASE_URL =
-//   "https://yase-crud-backend-c0bc93f85f45.herokuapp.com/api/valuation";
+const API_BASE_URL =
+  "https://yase-crud-backend-c0bc93f85f45.herokuapp.com/api/valuation";
 
-const API_BASE_URL = "http://localhost:5500/api/valuation";
+// const API_BASE_URL = "http://localhost:5500/api/valuation"; // test url
 
 //functions to send full email to server
 
