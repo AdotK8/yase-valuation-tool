@@ -10,7 +10,7 @@ export function handleServer(
   } else if (saleSuccess && !rentSuccess) {
     triggerBackendEmailSaleOnly(userInput, processedSaleData);
   } else if (!saleSuccess && !rentSuccess) {
-    triggerBackendEmailInternal(userInput);
+    triggerBackendEmailInternalFail(userInput);
   }
 }
 
@@ -82,10 +82,10 @@ async function triggerBackendEmailSaleOnly(userInput, processedSaleData) {
   }
 }
 
-async function triggerBackendEmailInternal(userInput) {
+async function triggerBackendEmailInternalFail(userInput) {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/valuation/send-email-internal",
+      "http://localhost:3000/api/valuation/send-email-internal-fail",
       {
         method: "POST",
         headers: {
@@ -111,6 +111,7 @@ async function triggerBackendEmailInternal(userInput) {
     console.error("Network error:", error);
   }
 }
+
 export async function triggerBackendEmailBookVal(userInput) {
   try {
     const response = await fetch(`${API_BASE_URL}/book-val`, {
